@@ -77,7 +77,7 @@ const samples = [
         title: "Toph, Avatar the Last Airbender",
         description: "Made with After Effects. Twixtor and shake experimentation.",
         mediaType: "vimeo",
-        media: "https://vimeo.com/1229041072",
+        media: "https://vimeo.com/1229040215",
         width: 4,
         height: 3,
         alt: "Toph Video Edit",
