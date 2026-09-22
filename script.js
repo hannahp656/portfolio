@@ -1,44 +1,13 @@
 /* =========================================================
-   PEASLEE STUDIO PORTFOLIO
-   =========================================================
-
-   THIS FILE CONTROLS YOUR PORTFOLIO PROJECTS.
-
-   TO ADD YOUR REAL WORK:
-
-   IMAGES:
-   mediaType: "image"
-   media: "images/my-image.jpg"
-
-   VIMEO:
-   mediaType: "vimeo"
-   media: "https://vimeo.com/123456789"
-
-   LOCAL VIDEO:
-   mediaType: "video"
-   media: "videos/my-video.mp4"
-
-   The width and height should match the original
-   dimensions of your media so the portfolio can
-   preserve the correct aspect ratio.
-
-   ========================================================= */
-
-
-/* =========================================================
-   PORTFOLIO PROJECTS
+   PORTFOLIO DATA
    ========================================================= */
 
 const samples = [
-
-    /* =====================================================
-       01 — VISUAL EDITING
-       ===================================================== */
-
     {
         section: "Visual Editing",
         title: "Mulan Video Edit",
-        description: "Made with After Effects. Uses film grain, flicker, and low FPS to create a nostalgic vibe.",
+        description:
+            "Made with After Effects. Uses film grain, flicker, and low FPS to create a nostalgic vibe.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229021189",
         width: 3,
@@ -51,7 +20,7 @@ const samples = [
     {
         section: "Visual Editing",
         title: "Visual Editing Project 02",
-        description: "Add a short description of this editing project.",
+        description: "Add your project description here.",
         mediaType: "video",
         media: "videos/visual-editing-02.mp4",
         cover: "images/visual-editing-02-cover.jpg",
@@ -62,15 +31,10 @@ const samples = [
         order: 2
     },
 
-
-    /* =====================================================
-       02 — FILM
-       ===================================================== */
-
     {
         section: "Film",
-        title: "Film Project",
-        description: "Add a short description of this film project.",
+        title: "Film Project 01",
+        description: "Add your project description here.",
         mediaType: "video",
         media: "videos/film-01.mp4",
         cover: "images/film-01-cover.jpg",
@@ -82,28 +46,9 @@ const samples = [
     },
 
     {
-        section: "Film",
-        title: "Film Project 02",
-        description: "Add a short description of this film project.",
-        mediaType: "video",
-        media: "videos/film-02.mp4",
-        cover: "images/film-02-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Film project",
-        placeholder: true,
-        order: 2
-    },
-
-
-    /* =====================================================
-       03 — MOTION
-       ===================================================== */
-
-    {
         section: "Motion",
-        title: "Motion Graphics Project",
-        description: "Add a short description of this motion project.",
+        title: "Motion Project 01",
+        description: "Add your project description here.",
         mediaType: "video",
         media: "videos/motion-01.mp4",
         cover: "images/motion-01-cover.jpg",
@@ -115,59 +60,22 @@ const samples = [
     },
 
     {
-        section: "Motion",
-        title: "Motion Project 02",
-        description: "Add a short description of this animation.",
-        mediaType: "video",
-        media: "videos/motion-02.mp4",
-        cover: "images/motion-02-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Motion graphics project",
-        placeholder: true,
-        order: 2
-    },
-
-
-    /* =====================================================
-       04 — ART & ILLUSTRATION
-       ===================================================== */
-
-    {
         section: "Art & Illustration",
-        title: "Illustration Project",
-        description: "Add a short description of this artwork.",
+        title: "Art Project 01",
+        description: "Add your project description here.",
         mediaType: "image",
         media: "images/art-01.jpg",
-        width: 1600,
-        height: 1200,
+        width: 1200,
+        height: 1500,
         alt: "Art and illustration project",
         placeholder: true,
         order: 1
     },
 
     {
-        section: "Art & Illustration",
-        title: "Artwork Project 02",
-        description: "Add a short description of this artwork.",
-        mediaType: "image",
-        media: "images/art-02.jpg",
-        width: 1600,
-        height: 1200,
-        alt: "Art and illustration project",
-        placeholder: true,
-        order: 2
-    },
-
-
-    /* =====================================================
-       05 — WEB & INTERFACE
-       ===================================================== */
-
-    {
         section: "Web & Interface",
-        title: "Web Design Project",
-        description: "Add a short description of this web or interface project.",
+        title: "Web Project 01",
+        description: "Add your project description here.",
         mediaType: "image",
         media: "images/web-01.jpg",
         width: 1600,
@@ -178,30 +86,12 @@ const samples = [
     },
 
     {
-        section: "Web & Interface",
-        title: "Interface Project 02",
-        description: "Add a short description of this interface project.",
-        mediaType: "image",
-        media: "images/web-02.jpg",
-        width: 1600,
-        height: 1000,
-        alt: "Interface design project",
-        placeholder: true,
-        order: 2
-    },
-
-
-    /* =====================================================
-       06 — GRAPHIC DESIGN
-       ===================================================== */
-
-    {
         section: "Graphic Design",
-        title: "Graphic Design Project",
-        description: "Add a short description of this graphic design project.",
+        title: "Graphic Design Project 01",
+        description: "Add your project description here.",
         mediaType: "image",
-        media: "images/graphic-design-01.jpg",
-        width: 1600,
+        media: "images/graphic-01.jpg",
+        width: 1200,
         height: 1200,
         alt: "Graphic design project",
         placeholder: true,
@@ -209,233 +99,134 @@ const samples = [
     },
 
     {
-        section: "Graphic Design",
-        title: "Graphic Design Project 02",
-        description: "Add a short description of this graphic design project.",
-        mediaType: "image",
-        media: "images/graphic-design-02.jpg",
-        width: 1600,
-        height: 1200,
-        alt: "Graphic design project",
-        placeholder: true,
-        order: 2
-    },
-
-
-    /* =====================================================
-       07 — EDITORIAL
-       ===================================================== */
-
-    {
         section: "Editorial",
-        title: "Editorial Project",
-        description: "Add a short description of this editorial project.",
+        title: "Editorial Project 01",
+        description: "Add your project description here.",
         mediaType: "image",
         media: "images/editorial-01.jpg",
-        width: 1600,
-        height: 1200,
-        alt: "Editorial design project",
-        placeholder: true,
-        order: 1
-    },
-
-    {
-        section: "Editorial",
-        title: "Editorial Project 02",
-        description: "Add a short description of this editorial project.",
-        mediaType: "image",
-        media: "images/editorial-02.jpg",
-        width: 1600,
-        height: 1200,
-        alt: "Editorial design project",
-        placeholder: true,
-        order: 2
-    },
-
-
-    /* =====================================================
-       08 — 3D & SPATIAL
-       ===================================================== */
-
-    {
-        section: "3D & Spatial",
-        title: "3D & Spatial Project",
-        description: "Add a short description of this 3D or spatial project.",
-        mediaType: "image",
-        media: "images/3d-spatial-01.jpg",
-        width: 1600,
-        height: 1200,
-        alt: "3D and spatial design project",
+        width: 1200,
+        height: 1600,
+        alt: "Editorial project",
         placeholder: true,
         order: 1
     },
 
     {
         section: "3D & Spatial",
-        title: "Spatial Project 02",
-        description: "Add a short description of this spatial project.",
+        title: "3D & Spatial Project 01",
+        description: "Add your project description here.",
         mediaType: "image",
-        media: "images/3d-spatial-02.jpg",
+        media: "images/3d-01.jpg",
         width: 1600,
-        height: 1200,
-        alt: "3D and spatial design project",
+        height: 1000,
+        alt: "3D and spatial project",
         placeholder: true,
-        order: 2
+        order: 1
     }
-
 ];
 
 
 /* =========================================================
-   SECTION ORDER
+   HELPERS
    ========================================================= */
 
-const sectionOrder = [
-    "Visual Editing",
-    "Film",
-    "Motion",
-    "Art & Illustration",
-    "Web & Interface",
-    "Graphic Design",
-    "Editorial",
-    "3D & Spatial"
-];
+function escapeHTML(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 
 /* =========================================================
-   GENERATE PORTFOLIO
+   VIMEO
    ========================================================= */
 
-const portfolio = document.getElementById("portfolio");
+function createVimeoEmbedURL(url) {
+    try {
+        const parsedURL = new URL(url);
 
+        const match = parsedURL.pathname.match(/\/(\d+)(?:\/)?$/);
 
-function createPortfolio() {
-
-    portfolio.innerHTML = "";
-
-    sectionOrder.forEach((sectionName, sectionIndex) => {
-
-        const sectionSamples = samples
-            .filter(sample => sample.section === sectionName)
-            .sort((a, b) => a.order - b.order);
-
-
-        /*
-         * If a section has no projects, don't display it.
-         */
-
-        if (sectionSamples.length === 0) {
-            return;
+        if (!match) {
+            return url;
         }
 
+        const videoID = match[1];
 
-        const section = document.createElement("section");
-
-        section.className = "work-section";
-
-
-        section.innerHTML = `
-
-            <div class="work-background-title">
-                ${escapeHTML(sectionName)}
-            </div>
+        return `https://player.vimeo.com/video/${videoID}?title=0&byline=0&portrait=0&dnt=1`;
+    } catch (error) {
+        return url;
+    }
+}
 
 
-            <div class="container">
+/* =========================================================
+   MEDIA
+   ========================================================= */
 
-                <div class="work-heading">
+function createMediaHTML(sample) {
+    const mediaType = sample.mediaType || "image";
 
-                    <div class="work-heading-inner">
-
-                        <span class="work-number">
-                            ${String(sectionIndex + 1).padStart(2, "0")}
-                        </span>
-
-                        <h3>
-                            ${escapeHTML(sectionName)}
-                        </h3>
-
-                    </div>
-
+    if (sample.placeholder) {
+        return `
+            <div class="media-placeholder">
+                <div class="placeholder-type">
+                    ${escapeHTML(mediaType)}
                 </div>
 
-            </div>
-
-
-            <div
-                class="carousel"
-                data-section="${escapeAttribute(sectionName)}"
-            >
-
-                ${sectionSamples
-                    .map((sample, index) =>
-                        createSampleHTML(sample, index)
-                    )
-                    .join("")}
-
-            </div>
-
-
-            <div class="container">
-
-                <div class="carousel-controls">
-
-                    <div class="controls-row">
-
-                        <button
-                            class="carousel-button previous-button"
-                            type="button"
-                            aria-label="Previous sample"
-                        >
-                            ◀
-                        </button>
-
-
-                        <div class="progress-track">
-
-                            <div class="progress-fill"></div>
-
-                            <div class="progress-marker"></div>
-
-                        </div>
-
-
-                        <button
-                            class="carousel-button next-button"
-                            type="button"
-                            aria-label="Next sample"
-                        >
-                            ▶
-                        </button>
-
-                    </div>
-
-
-                    <div class="carousel-meta">
-
-                        <span class="carousel-counter">
-                            01 / ${String(sectionSamples.length).padStart(2, "0")}
-                        </span>
-
-                        <span>
-                            ${escapeHTML(sectionName)}
-                        </span>
-
-                    </div>
-
+                <div class="placeholder-title">
+                    ${escapeHTML(sample.title)}
                 </div>
 
+                <div class="placeholder-path">
+                    ${escapeHTML(sample.media || "Media coming soon")}
+                </div>
             </div>
-
         `;
+    }
 
+    if (mediaType === "vimeo") {
+        const embedURL = createVimeoEmbedURL(sample.media);
 
-        portfolio.appendChild(section);
+        return `
+            <iframe
+                class="vimeo-video"
+                src="${escapeHTML(embedURL)}"
+                title="${escapeHTML(sample.title)}"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+        `;
+    }
 
-        initializeCarousel(section);
+    if (mediaType === "video") {
+        return `
+            <video
+                class="portfolio-video"
+                controls
+                playsinline
+                preload="metadata"
+                ${sample.cover ? `poster="${escapeHTML(sample.cover)}"` : ""}
+            >
+                <source
+                    src="${escapeHTML(sample.media)}"
+                    type="video/mp4"
+                >
+                Your browser does not support the video tag.
+            </video>
+        `;
+    }
 
-    });
-
+    return `
+        <img
+            src="${escapeHTML(sample.media)}"
+            alt="${escapeHTML(sample.alt || sample.title)}"
+            loading="lazy"
+        >
+    `;
 }
 
 
@@ -444,637 +235,399 @@ function createPortfolio() {
    ========================================================= */
 
 function createSampleHTML(sample, index) {
+    /*
+       Get the real aspect ratio from the project's
+       width and height.
 
-    const activeClass =
-        index === 0 ? "active" : "";
+       Example:
+       3 / 4 = 0.75
 
+       We then calculate the largest possible size
+       where BOTH dimensions stay at or below 600px.
 
-    const aspectRatio =
-        sample.width && sample.height
-            ? `${sample.width} / ${sample.height}`
-            : "16 / 9";
+       3:4 -> 450 x 600
+       1:1 -> 600 x 600
+       16:9 -> 600 x 337.5
+    */
 
+    const width = Number(sample.width) || 16;
+    const height = Number(sample.height) || 9;
 
-    let mediaHTML;
+    const ratio = width / height;
 
+    let maxMediaWidth;
+    let maxMediaHeight;
 
-    /* =====================================================
-       PLACEHOLDER
-       ===================================================== */
-
-    if (sample.placeholder) {
-
-        const placeholderType =
-            sample.mediaType === "vimeo"
-                ? "VIMEO"
-                : sample.mediaType === "video"
-                    ? "VIDEO"
-                    : "IMAGE";
-
-
-        mediaHTML = `
-
-            <div
-                class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
-            >
-
-                <div class="media-placeholder">
-
-                    <div class="placeholder-type">
-                        ${placeholderType}
-                    </div>
-
-                    <div class="placeholder-title">
-                        ADD MEDIA HERE
-                    </div>
-
-                    <div class="placeholder-path">
-                        ${escapeHTML(sample.media)}
-                    </div>
-
-                </div>
-
-            </div>
-
-        `;
-
+    if (ratio >= 1) {
+        maxMediaWidth = 600;
+        maxMediaHeight = 600 / ratio;
+    } else {
+        maxMediaHeight = 600;
+        maxMediaWidth = 600 * ratio;
     }
-
-
-    /* =====================================================
-       IMAGE
-       ===================================================== */
-
-    else if (sample.mediaType === "image") {
-
-        mediaHTML = `
-
-            <div
-                class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
-            >
-
-                <img
-                    src="${escapeAttribute(sample.media)}"
-                    alt="${escapeAttribute(sample.alt || sample.title)}"
-                    loading="lazy"
-                >
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* =====================================================
-       VIMEO VIDEO
-       ===================================================== */
-
-    else if (sample.mediaType === "vimeo") {
-
-        const vimeoURL =
-            createVimeoEmbedURL(sample.media);
-
-
-        mediaHTML = `
-
-            <div
-                class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
-            >
-
-                <iframe
-                    class="vimeo-video"
-                    src="${escapeAttribute(vimeoURL)}"
-                    title="${escapeAttribute(sample.title)}"
-                    loading="lazy"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* =====================================================
-       LOCAL VIDEO FILE
-       ===================================================== */
-
-    else {
-
-        const poster =
-            sample.cover
-                ? `poster="${escapeAttribute(sample.cover)}"`
-                : "";
-
-
-        mediaHTML = `
-
-            <div
-                class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
-            >
-
-                <video
-                    class="portfolio-video"
-                    src="${escapeAttribute(sample.media)}"
-                    ${poster}
-                    preload="metadata"
-                    playsinline
-                    controls
-                ></video>
-
-            </div>
-
-        `;
-
-    }
-
 
     return `
-
         <article
-            class="sample ${activeClass}"
+            class="sample ${index === 0 ? "active" : ""}"
             data-sample
+            style="
+                --media-ratio: ${ratio};
+                --media-max-width: ${maxMediaWidth}px;
+                --media-max-height: ${maxMediaHeight}px;
+            "
         >
 
             <div class="media-frame">
 
-                ${
-                    index === 0
-                        ? `
-                            <div class="media-record">
-                                <span class="media-record-dot"></span>
-                                REC
-                            </div>
-                        `
-                        : ""
-                }
+                <div class="media-content">
+                    ${createMediaHTML(sample)}
 
-
-                ${mediaHTML}
+                    <div class="media-record">
+                        <span class="media-record-dot"></span>
+                        <span>REC</span>
+                    </div>
+                </div>
 
             </div>
 
-
             <div class="sample-info">
-
-                <h4 class="sample-title">
+                <div class="sample-title">
                     ${escapeHTML(sample.title)}
-                </h4>
+                </div>
 
-                <p class="sample-description">
-                    ${escapeHTML(sample.description || "")}
-                </p>
-
+                <div class="sample-description">
+                    ${escapeHTML(sample.description)}
+                </div>
             </div>
 
         </article>
-
     `;
-
 }
 
 
 /* =========================================================
-   VIMEO URL
-   =========================================================
-
-   Accepts:
-
-   https://vimeo.com/123456789
-
-   and converts it into:
-
-   https://player.vimeo.com/video/123456789
+   GROUP SAMPLES BY SECTION
    ========================================================= */
 
-function createVimeoEmbedURL(urlString) {
+function groupSamplesBySection() {
+    const grouped = {};
 
-    try {
-
-        const url =
-            new URL(urlString);
-
-
-        /*
-         * Extract the numeric Vimeo video ID.
-         */
-
-        const pathParts =
-            url.pathname
-                .split("/")
-                .filter(Boolean);
-
-
-        /*
-         * The video ID is the last numeric-looking
-         * part of the URL.
-         */
-
-        let videoID = "";
-
-
-        for (let i = pathParts.length - 1; i >= 0; i--) {
-
-            if (/^\d+$/.test(pathParts[i])) {
-
-                videoID = pathParts[i];
-
-                break;
-
+    samples
+        .slice()
+        .sort((a, b) => {
+            return (a.order || 0) - (b.order || 0);
+        })
+        .forEach((sample) => {
+            if (!grouped[sample.section]) {
+                grouped[sample.section] = [];
             }
 
-        }
+            grouped[sample.section].push(sample);
+        });
 
-
-        if (!videoID) {
-
-            console.error(
-                "Could not find Vimeo video ID:",
-                urlString
-            );
-
-            return urlString;
-
-        }
-
-
-        /*
-         * Vimeo player parameters.
-         *
-         * title=0
-         * Hide video title when supported.
-         *
-         * byline=0
-         * Hide creator information when supported.
-         *
-         * portrait=0
-         * Hide creator avatar when supported.
-         *
-         * dnt=1
-         * Enable Do Not Track mode.
-         */
-
-        return (
-            `https://player.vimeo.com/video/${videoID}` +
-            `?title=0&byline=0&portrait=0&dnt=1`
-        );
-
-    } catch (error) {
-
-        console.error(
-            "Could not create Vimeo embed URL:",
-            urlString
-        );
-
-
-        return urlString;
-
-    }
-
+    return grouped;
 }
 
 
 /* =========================================================
-   CAROUSEL
+   CREATE PORTFOLIO
    ========================================================= */
 
-function initializeCarousel(section) {
+function createPortfolio() {
+    const portfolio = document.getElementById("portfolio");
 
-    const carousel =
-        section.querySelector(".carousel");
-
-
-    const samplesInCarousel =
-        Array.from(
-            carousel.querySelectorAll("[data-sample]")
-        );
-
-
-    const previousButton =
-        section.querySelector(".previous-button");
-
-
-    const nextButton =
-        section.querySelector(".next-button");
-
-
-    const progressFill =
-        section.querySelector(".progress-fill");
-
-
-    const progressMarker =
-        section.querySelector(".progress-marker");
-
-
-    const counter =
-        section.querySelector(".carousel-counter");
-
-
-    if (samplesInCarousel.length === 0) {
+    if (!portfolio) {
         return;
     }
 
+    const grouped = groupSamplesBySection();
 
-    let activeIndex = 0;
+    const sections = Object.entries(grouped);
+
+    portfolio.innerHTML = sections
+        .map(([sectionName, sectionSamples], sectionIndex) => {
+            const sectionNumber = String(sectionIndex + 1).padStart(2, "0");
+
+            const samplesHTML = sectionSamples
+                .map((sample, index) => {
+                    return createSampleHTML(sample, index);
+                })
+                .join("");
+
+            return `
+                <section class="work-section">
+
+                    <div class="work-background-title">
+                        ${escapeHTML(sectionName)}
+                    </div>
+
+                    <div class="container">
+
+                        <div class="work-heading">
+
+                            <div class="work-heading-inner">
+
+                                <span class="work-number">
+                                    ${sectionNumber}
+                                </span>
+
+                                <h3>
+                                    ${escapeHTML(sectionName)}
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
 
-    /*
-     * Find which card is closest to the center
-     * of the carousel.
-     */
-
-    function updateActiveSample() {
-
-        const center =
-            carousel.scrollLeft
-            + carousel.clientWidth / 2;
+                    <div
+                        class="carousel"
+                        data-carousel
+                    >
+                        ${samplesHTML}
+                    </div>
 
 
-        let closestIndex = 0;
-        let closestDistance = Infinity;
+                    <div class="container">
+
+                        <div class="carousel-controls">
+
+                            <div class="controls-row">
+
+                                <button
+                                    class="carousel-button"
+                                    type="button"
+                                    data-prev
+                                    aria-label="Previous project"
+                                >
+                                    ←
+                                </button>
+
+                                <div class="progress-track">
+                                    <div
+                                        class="progress-fill"
+                                        data-progress-fill
+                                    ></div>
+
+                                    <div
+                                        class="progress-marker"
+                                        data-progress-marker
+                                    ></div>
+                                </div>
+
+                                <button
+                                    class="carousel-button"
+                                    type="button"
+                                    data-next
+                                    aria-label="Next project"
+                                >
+                                    →
+                                </button>
+
+                            </div>
+
+                            <div class="carousel-meta">
+
+                                <span>
+                                    <span data-current>01</span>
+                                    /
+                                    <span data-total>
+                                        ${String(sectionSamples.length).padStart(2, "0")}
+                                    </span>
+                                </span>
+
+                                <span>
+                                    ${escapeHTML(sectionName)}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+            `;
+        })
+        .join("");
+
+    initializeCarousels();
+}
 
 
-        samplesInCarousel.forEach(
-            (sample, index) => {
+/* =========================================================
+   CAROUSELS
+   ========================================================= */
+
+function initializeCarousels() {
+    const carousels = document.querySelectorAll("[data-carousel]");
+
+    carousels.forEach((carousel) => {
+        const samplesInCarousel =
+            carousel.querySelectorAll("[data-sample]");
+
+        const section = carousel.closest(".work-section");
+
+        if (!section || !samplesInCarousel.length) {
+            return;
+        }
+
+        const previousButton =
+            section.querySelector("[data-prev]");
+
+        const nextButton =
+            section.querySelector("[data-next]");
+
+        const currentDisplay =
+            section.querySelector("[data-current]");
+
+        const progressFill =
+            section.querySelector("[data-progress-fill]");
+
+        const progressMarker =
+            section.querySelector("[data-progress-marker]");
+
+
+        function getClosestSampleIndex() {
+            const carouselRect = carousel.getBoundingClientRect();
+
+            const carouselCenter =
+                carouselRect.left + carouselRect.width / 2;
+
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            samplesInCarousel.forEach((sample, index) => {
+                const rect = sample.getBoundingClientRect();
 
                 const sampleCenter =
-                    sample.offsetLeft
-                    + sample.offsetWidth / 2;
-
+                    rect.left + rect.width / 2;
 
                 const distance =
-                    Math.abs(
-                        sampleCenter - center
-                    );
-
+                    Math.abs(sampleCenter - carouselCenter);
 
                 if (distance < closestDistance) {
-
                     closestDistance = distance;
                     closestIndex = index;
-
                 }
+            });
 
-            }
-        );
-
-
-        activeIndex = closestIndex;
+            return closestIndex;
+        }
 
 
-        samplesInCarousel.forEach(
-            (sample, index) => {
+        function updateActiveSample() {
+            const activeIndex = getClosestSampleIndex();
 
+            samplesInCarousel.forEach((sample, index) => {
                 sample.classList.toggle(
                     "active",
                     index === activeIndex
                 );
+            });
 
+            if (currentDisplay) {
+                currentDisplay.textContent =
+                    String(activeIndex + 1).padStart(2, "0");
             }
-        );
 
+            const total = samplesInCarousel.length;
 
-        updateProgress();
+            const progress =
+                total <= 1
+                    ? 100
+                    : (activeIndex / (total - 1)) * 100;
 
-    }
+            if (progressFill) {
+                progressFill.style.width = `${progress}%`;
+            }
 
-
-    /*
-     * Update progress bar and counter.
-     */
-
-    function updateProgress() {
-
-        const progress =
-            samplesInCarousel.length > 1
-                ? (
-                    activeIndex
-                    / (samplesInCarousel.length - 1)
-                ) * 100
-                : 0;
-
-
-        progressFill.style.width =
-            `${progress}%`;
-
-
-        progressMarker.style.left =
-            `${progress}%`;
-
-
-        counter.textContent =
-            `${String(activeIndex + 1).padStart(2, "0")} / ${String(samplesInCarousel.length).padStart(2, "0")}`;
-
-    }
-
-
-    /*
-     * Scroll to a particular sample.
-     */
-
-    function goToSample(index) {
-
-        if (index < 0) {
-            index = 0;
+            if (progressMarker) {
+                progressMarker.style.left = `${progress}%`;
+            }
         }
 
 
-        if (index >= samplesInCarousel.length) {
+        function scrollToSample(index) {
+            if (!samplesInCarousel[index]) {
+                return;
+            }
 
-            index =
-                samplesInCarousel.length - 1;
-
+            samplesInCarousel[index].scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center"
+            });
         }
 
 
-        const sample =
-            samplesInCarousel[index];
+        previousButton?.addEventListener("click", () => {
+            const currentIndex = getClosestSampleIndex();
 
+            const nextIndex =
+                Math.max(currentIndex - 1, 0);
 
-        const targetLeft =
-            sample.offsetLeft
-            - (carousel.clientWidth / 2)
-            + (sample.offsetWidth / 2);
-
-
-        carousel.scrollTo({
-
-            left: targetLeft,
-
-            behavior: "smooth"
-
+            scrollToSample(nextIndex);
         });
 
-    }
+
+        nextButton?.addEventListener("click", () => {
+            const currentIndex = getClosestSampleIndex();
+
+            const nextIndex =
+                Math.min(
+                    currentIndex + 1,
+                    samplesInCarousel.length - 1
+                );
+
+            scrollToSample(nextIndex);
+        });
 
 
-    /*
-     * Previous button
-     */
+        let scrollTimeout;
 
-    previousButton.addEventListener(
-        "click",
-        () => {
+        carousel.addEventListener(
+            "scroll",
+            () => {
+                clearTimeout(scrollTimeout);
 
-            goToSample(activeIndex - 1);
-
-        }
-    );
-
-
-    /*
-     * Next button
-     */
-
-    nextButton.addEventListener(
-        "click",
-        () => {
-
-            goToSample(activeIndex + 1);
-
-        }
-    );
-
-
-    /*
-     * Track manual horizontal scrolling.
-     */
-
-    carousel.addEventListener(
-        "scroll",
-        updateActiveSample,
-        { passive: true }
-    );
-
-
-    /*
-     * Recalculate on window resize.
-     */
-
-    window.addEventListener(
-        "resize",
-        updateActiveSample
-    );
-
-
-    /*
-     * Initial state.
-     */
-
-    requestAnimationFrame(
-        () => {
-
-            updateActiveSample();
-
-        }
-    );
-
-
-    /*
-     * Keyboard accessibility.
-     */
-
-    carousel.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "ArrowLeft") {
-
-                goToSample(activeIndex - 1);
-
-            }
-
-
-            if (event.key === "ArrowRight") {
-
-                goToSample(activeIndex + 1);
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   HTML ESCAPING
-   ========================================================= */
-
-function escapeHTML(value) {
-
-    if (
-        value === undefined ||
-        value === null
-    ) {
-
-        return "";
-
-    }
-
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
+                scrollTimeout = setTimeout(() => {
+                    updateActiveSample();
+                }, 80);
+            },
+            { passive: true }
         );
 
-}
+
+        window.addEventListener("resize", updateActiveSample);
 
 
-function escapeAttribute(value) {
-
-    return escapeHTML(value);
-
-}
-
-
-/* =========================================================
-   CURRENT YEAR
-   ========================================================= */
-
-const yearElement =
-    document.getElementById("current-year");
-
-
-if (yearElement) {
-
-    yearElement.textContent =
-        new Date().getFullYear();
-
+        updateActiveSample();
+    });
 }
 
 
 /* =========================================================
-   START SITE
+   YEAR
    ========================================================= */
 
-createPortfolio();
+function updateYear() {
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+        yearElement.textContent =
+            new Date().getFullYear();
+    }
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+    createPortfolio();
+    updateYear();
+});
