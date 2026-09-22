@@ -37,13 +37,13 @@ const samples = [
 
     {
         section: "Visual Editing",
-        title: "Mulan Secret Santa Edit",
-        description: "Add a short description of this editing project.",
+        title: "Mulan Video Edit",
+        description: "Made with After Effects. Uses film grain, flicker, and low FPS to create a nostalgic vibe.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229021189",
-        width: 1,
-        height: 1,
-        alt: "Mulan Secret Santa video edit",
+        width: 3,
+        height: 4,
+        alt: "Mulan Video Edit",
         placeholder: false,
         order: 1
     },
