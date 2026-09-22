@@ -37,7 +37,7 @@ const samples = [
 
     {
         section: "Visual Editing",
-        title: "Mulan Video Edit",
+        title: "Mulan",
         description: "Made with After Effects. Uses film grain, flicker, and low FPS to create a nostalgic vibe.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229021189",
@@ -50,16 +50,63 @@ const samples = [
 
     {
         section: "Visual Editing",
-        title: "Visual Editing Project 02",
-        description: "Add a short description of this editing project.",
-        mediaType: "video",
-        media: "videos/visual-editing-02.mp4",
-        cover: "images/visual-editing-02-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Visual editing project",
-        placeholder: true,
+        title: "Poster Presentation Teaser",
+        description: "Made with After Effects. A teaser video played to introduce a poster on display about Korean typography.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229044900",
+        width: 9,
+        height: 16,
+        alt: "Poster Presentation Teaser",
+        placeholder: false,
         order: 2
+    },
+   {
+        section: "Visual Editing",
+        title: "Anne with an E",
+        description: "Made with After Effects. Typography practice.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229046371",
+        width: 16,
+        height: 9,
+        alt: "Anne with an E",
+        placeholder: false,
+        order: 3
+    },
+   {
+        section: "Visual Editing",
+        title: "Toph, Avatar the Last Airbender",
+        description: "Made with After Effects. Twixtor and shake experimentation.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229041072",
+        width: 4,
+        height: 3,
+        alt: "Toph Video Edit",
+        placeholder: false,
+        order: 4
+    },
+   {
+        section: "Visual Editing",
+        title: "Renee, All for the Game",
+        description: "Made with After Effects. Practicing working with static images.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229041072",
+        width: 1,
+        height: 1,
+        alt: "Renee, All for the Game",
+        placeholder: false,
+        order: 5
+    },
+   {
+        section: "Visual Editing",
+        title: "Technoblade",
+        description: "Made with After Effects. Focused on heavy-hitting transitions to reduce the static feeling of each image.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229041735",
+        width: 3,
+        height: 4,
+        alt: "Technoblade",
+        placeholder: false,
+        order: 6
     },
 
 
