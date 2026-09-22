@@ -205,7 +205,7 @@ video {
 
 .hero h1 {
     font-family: var(--display-font);
-    font-size: clamp(7rem, 13vw, 14rem);
+    font-size: clamp(7rem, 11vw, 14rem);
     font-weight: 800;
     line-height: 0.82;
     letter-spacing: -0.06em;
