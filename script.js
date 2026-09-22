@@ -50,13 +50,12 @@ const samples = [
         section: "Visual Editing",
         title: "Visual Editing Project",
         description: "Add a short description of this editing project.",
-        mediaType: "video",
-        media: "videos/visual-editing-01.mp4",
-        cover: "images/visual-editing-01-cover.jpg",
-        width: 1920,
-        height: 1080,
+        mediaType: "youtube",
+        media: "https://youtube.com/shorts/Iq5IKd7Y8oQ?feature=share",
+        width: 1080,
+        height: 1920,
         alt: "Visual editing project",
-        placeholder: true,
+        placeholder: false,
         order: 1
     },
 
@@ -520,50 +519,132 @@ function createSampleHTML(sample, index) {
         `;
 
     }
+/*
+ * YOUTUBE VIDEO
+ */
+
+else if (sample.mediaType === "youtube") {
+
+    let youtubeURL = sample.media;
 
     /*
-     * VIDEO
+     * Convert a normal YouTube URL or YouTube Shorts URL
+     * into an embeddable YouTube URL.
      */
 
-    else {
+    try {
 
-        const poster = sample.cover
-            ? `poster="${escapeAttribute(sample.cover)}"`
-            : "";
+        const url = new URL(sample.media);
 
-        mediaHTML = `
+        let videoID = "";
 
-            <div
-                class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
-            >
+        /*
+         * YouTube Shorts:
+         * youtube.com/shorts/VIDEO_ID
+         */
 
-                <video
-                    class="portfolio-video"
-                    src="${escapeAttribute(sample.media)}"
-                    ${poster}
-                    preload="metadata"
-                    playsinline
-                ></video>
+        if (url.pathname.startsWith("/shorts/")) {
 
-                <button
-                    class="video-play-button"
-                    type="button"
-                    aria-label="Play ${escapeAttribute(sample.title)}"
-                >
+            videoID =
+                url.pathname.split("/shorts/")[1].split("/")[0];
 
-                    <span class="play-icon">
-                        <span class="play-triangle"></span>
-                    </span>
+        }
 
-                </button>
+        /*
+         * Normal YouTube videos:
+         * youtube.com/watch?v=VIDEO_ID
+         */
 
-            </div>
+        else if (url.searchParams.get("v")) {
 
-        `;
+            videoID =
+                url.searchParams.get("v");
+
+        }
+
+        /*
+         * youtu.be/VIDEO_ID
+         */
+
+        else if (url.hostname === "youtu.be") {
+
+            videoID =
+                url.pathname.substring(1).split("/")[0];
+
+        }
+
+
+        if (videoID) {
+
+            youtubeURL =
+                `https://www.youtube.com/embed/${videoID}`;
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Could not convert YouTube URL:",
+            sample.media
+        );
 
     }
 
+
+    mediaHTML = `
+
+        <div
+            class="media-content"
+            style="aspect-ratio: ${aspectRatio};"
+        >
+
+            <iframe
+                class="youtube-video"
+                src="${escapeAttribute(youtubeURL)}"
+                title="${escapeAttribute(sample.title)}"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+    `;
+
+}
+
+
+/*
+ * REGULAR VIDEO FILE
+ */
+
+else {
+
+    const poster = sample.cover
+        ? `poster="${escapeAttribute(sample.cover)}"`
+        : "";
+
+    mediaHTML = `
+
+        <div
+            class="media-content"
+            style="aspect-ratio: ${aspectRatio};"
+        >
+
+            <video
+                class="portfolio-video"
+                src="${escapeAttribute(sample.media)}"
+                ${poster}
+                preload="metadata"
+                playsinline
+                controls
+            ></video>
+
+        </div>
+
+    `;
+
+}
 
     return `
 
