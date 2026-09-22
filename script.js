@@ -4,40 +4,29 @@
 
    THIS FILE CONTROLS YOUR PORTFOLIO PROJECTS.
 
-   To add your real work:
+   TO ADD YOUR REAL WORK:
 
-   1. Put your image/video in the "images" or "videos" folder.
-   2. Find the corresponding project below.
-   3. Replace the placeholder information.
+   IMAGES:
+   mediaType: "image"
+   media: "images/my-image.jpg"
 
-   Example:
+   VIMEO:
+   mediaType: "vimeo"
+   media: "https://vimeo.com/123456789"
 
+   LOCAL VIDEO:
+   mediaType: "video"
    media: "videos/my-video.mp4"
 
-   or:
-
-   media: "images/my-image.jpg"
+   The width and height should match the original
+   dimensions of your media so the portfolio can
+   preserve the correct aspect ratio.
 
    ========================================================= */
 
 
 /* =========================================================
    PORTFOLIO PROJECTS
-   =========================================================
-
-   Each project has:
-
-   section       = Which portfolio category it belongs to
-   title         = Project title
-   description   = Short project description
-   mediaType     = "image" or "video"
-   media         = Path to your image/video
-   cover         = Optional video thumbnail/poster
-   width         = Original media width
-   height        = Original media height
-   alt           = Accessibility description
-   placeholder   = true while you haven't added the media
-
    ========================================================= */
 
 const samples = [
@@ -48,13 +37,13 @@ const samples = [
 
     {
         section: "Visual Editing",
-        title: "Visual Editing Project",
+        title: "Mulan Secret Santa Edit",
         description: "Add a short description of this editing project.",
-        mediaType: "youtube",
-        media: "https://youtube.com/shorts/Iq5IKd7Y8oQ?feature=share",
-        width: 1080,
-        height: 1920,
-        alt: "Visual editing project",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229021189",
+        width: 1,
+        height: 1,
+        alt: "Mulan Secret Santa video edit",
         placeholder: false,
         order: 1
     },
@@ -330,22 +319,27 @@ function createPortfolio() {
             .filter(sample => sample.section === sectionName)
             .sort((a, b) => a.order - b.order);
 
+
         /*
          * If a section has no projects, don't display it.
          */
+
         if (sectionSamples.length === 0) {
             return;
         }
 
+
         const section = document.createElement("section");
 
         section.className = "work-section";
+
 
         section.innerHTML = `
 
             <div class="work-background-title">
                 ${escapeHTML(sectionName)}
             </div>
+
 
             <div class="container">
 
@@ -396,6 +390,7 @@ function createPortfolio() {
                             ◀
                         </button>
 
+
                         <div class="progress-track">
 
                             <div class="progress-fill"></div>
@@ -403,6 +398,7 @@ function createPortfolio() {
                             <div class="progress-marker"></div>
 
                         </div>
+
 
                         <button
                             class="carousel-button next-button"
@@ -413,6 +409,7 @@ function createPortfolio() {
                         </button>
 
                     </div>
+
 
                     <div class="carousel-meta">
 
@@ -429,7 +426,9 @@ function createPortfolio() {
                 </div>
 
             </div>
+
         `;
+
 
         portfolio.appendChild(section);
 
@@ -446,7 +445,9 @@ function createPortfolio() {
 
 function createSampleHTML(sample, index) {
 
-    const activeClass = index === 0 ? "active" : "";
+    const activeClass =
+        index === 0 ? "active" : "";
+
 
     const aspectRatio =
         sample.width && sample.height
@@ -457,14 +458,19 @@ function createSampleHTML(sample, index) {
     let mediaHTML;
 
 
-    /*
-     * PLACEHOLDER
-     *
-     * This is what you'll see until you replace
-     * placeholder: true with placeholder: false.
-     */
+    /* =====================================================
+       PLACEHOLDER
+       ===================================================== */
 
     if (sample.placeholder) {
+
+        const placeholderType =
+            sample.mediaType === "vimeo"
+                ? "VIMEO"
+                : sample.mediaType === "video"
+                    ? "VIDEO"
+                    : "IMAGE";
+
 
         mediaHTML = `
 
@@ -476,7 +482,7 @@ function createSampleHTML(sample, index) {
                 <div class="media-placeholder">
 
                     <div class="placeholder-type">
-                        ${sample.mediaType === "video" ? "VIDEO" : "IMAGE"}
+                        ${placeholderType}
                     </div>
 
                     <div class="placeholder-title">
@@ -495,9 +501,10 @@ function createSampleHTML(sample, index) {
 
     }
 
-    /*
-     * IMAGE
-     */
+
+    /* =====================================================
+       IMAGE
+       ===================================================== */
 
     else if (sample.mediaType === "image") {
 
@@ -519,132 +526,75 @@ function createSampleHTML(sample, index) {
         `;
 
     }
-/*
- * YOUTUBE VIDEO
- */
-
-else if (sample.mediaType === "youtube") {
-
-    let youtubeURL = sample.media;
-
-    /*
-     * Convert a normal YouTube URL or YouTube Shorts URL
-     * into an embeddable YouTube URL.
-     */
-
-    try {
-
-        const url = new URL(sample.media);
-
-        let videoID = "";
-
-        /*
-         * YouTube Shorts:
-         * youtube.com/shorts/VIDEO_ID
-         */
-
-        if (url.pathname.startsWith("/shorts/")) {
-
-            videoID =
-                url.pathname.split("/shorts/")[1].split("/")[0];
-
-        }
-
-        /*
-         * Normal YouTube videos:
-         * youtube.com/watch?v=VIDEO_ID
-         */
-
-        else if (url.searchParams.get("v")) {
-
-            videoID =
-                url.searchParams.get("v");
-
-        }
-
-        /*
-         * youtu.be/VIDEO_ID
-         */
-
-        else if (url.hostname === "youtu.be") {
-
-            videoID =
-                url.pathname.substring(1).split("/")[0];
-
-        }
 
 
-        if (videoID) {
+    /* =====================================================
+       VIMEO VIDEO
+       ===================================================== */
 
-            youtubeURL =
-                `https://www.youtube.com/embed/${videoID}`;
+    else if (sample.mediaType === "vimeo") {
 
-        }
+        const vimeoURL =
+            createVimeoEmbedURL(sample.media);
 
-    } catch (error) {
 
-        console.error(
-            "Could not convert YouTube URL:",
-            sample.media
-        );
+        mediaHTML = `
+
+            <div
+                class="media-content"
+                style="aspect-ratio: ${aspectRatio};"
+            >
+
+                <iframe
+                    class="vimeo-video"
+                    src="${escapeAttribute(vimeoURL)}"
+                    title="${escapeAttribute(sample.title)}"
+                    loading="lazy"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+        `;
 
     }
 
 
-    mediaHTML = `
+    /* =====================================================
+       LOCAL VIDEO FILE
+       ===================================================== */
 
-        <div
-            class="media-content"
-            style="aspect-ratio: ${aspectRatio};"
-        >
+    else {
 
-            <iframe
-                class="youtube-video"
-                src="${escapeAttribute(youtubeURL)}"
-                title="${escapeAttribute(sample.title)}"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
-
-        </div>
-
-    `;
-
-}
+        const poster =
+            sample.cover
+                ? `poster="${escapeAttribute(sample.cover)}"`
+                : "";
 
 
-/*
- * REGULAR VIDEO FILE
- */
+        mediaHTML = `
 
-else {
+            <div
+                class="media-content"
+                style="aspect-ratio: ${aspectRatio};"
+            >
 
-    const poster = sample.cover
-        ? `poster="${escapeAttribute(sample.cover)}"`
-        : "";
+                <video
+                    class="portfolio-video"
+                    src="${escapeAttribute(sample.media)}"
+                    ${poster}
+                    preload="metadata"
+                    playsinline
+                    controls
+                ></video>
 
-    mediaHTML = `
+            </div>
 
-        <div
-            class="media-content"
-            style="aspect-ratio: ${aspectRatio};"
-        >
+        `;
 
-            <video
-                class="portfolio-video"
-                src="${escapeAttribute(sample.media)}"
-                ${poster}
-                preload="metadata"
-                playsinline
-                controls
-            ></video>
+    }
 
-        </div>
-
-    `;
-
-}
 
     return `
 
@@ -665,6 +615,7 @@ else {
                         `
                         : ""
                 }
+
 
                 ${mediaHTML}
 
@@ -691,27 +642,136 @@ else {
 
 
 /* =========================================================
+   VIMEO URL
+   =========================================================
+
+   Accepts:
+
+   https://vimeo.com/123456789
+
+   and converts it into:
+
+   https://player.vimeo.com/video/123456789
+   ========================================================= */
+
+function createVimeoEmbedURL(urlString) {
+
+    try {
+
+        const url =
+            new URL(urlString);
+
+
+        /*
+         * Extract the numeric Vimeo video ID.
+         */
+
+        const pathParts =
+            url.pathname
+                .split("/")
+                .filter(Boolean);
+
+
+        /*
+         * The video ID is the last numeric-looking
+         * part of the URL.
+         */
+
+        let videoID = "";
+
+
+        for (let i = pathParts.length - 1; i >= 0; i--) {
+
+            if (/^\d+$/.test(pathParts[i])) {
+
+                videoID = pathParts[i];
+
+                break;
+
+            }
+
+        }
+
+
+        if (!videoID) {
+
+            console.error(
+                "Could not find Vimeo video ID:",
+                urlString
+            );
+
+            return urlString;
+
+        }
+
+
+        /*
+         * Vimeo player parameters.
+         *
+         * title=0
+         * Hide video title when supported.
+         *
+         * byline=0
+         * Hide creator information when supported.
+         *
+         * portrait=0
+         * Hide creator avatar when supported.
+         *
+         * dnt=1
+         * Enable Do Not Track mode.
+         */
+
+        return (
+            `https://player.vimeo.com/video/${videoID}` +
+            `?title=0&byline=0&portrait=0&dnt=1`
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Could not create Vimeo embed URL:",
+            urlString
+        );
+
+
+        return urlString;
+
+    }
+
+}
+
+
+/* =========================================================
    CAROUSEL
    ========================================================= */
 
 function initializeCarousel(section) {
 
-    const carousel = section.querySelector(".carousel");
+    const carousel =
+        section.querySelector(".carousel");
+
 
     const samplesInCarousel =
-        Array.from(carousel.querySelectorAll("[data-sample]"));
+        Array.from(
+            carousel.querySelectorAll("[data-sample]")
+        );
+
 
     const previousButton =
         section.querySelector(".previous-button");
 
+
     const nextButton =
         section.querySelector(".next-button");
+
 
     const progressFill =
         section.querySelector(".progress-fill");
 
+
     const progressMarker =
         section.querySelector(".progress-marker");
+
 
     const counter =
         section.querySelector(".carousel-counter");
@@ -733,42 +793,52 @@ function initializeCarousel(section) {
     function updateActiveSample() {
 
         const center =
-            carousel.scrollLeft + carousel.clientWidth / 2;
+            carousel.scrollLeft
+            + carousel.clientWidth / 2;
+
 
         let closestIndex = 0;
         let closestDistance = Infinity;
 
 
-        samplesInCarousel.forEach((sample, index) => {
+        samplesInCarousel.forEach(
+            (sample, index) => {
 
-            const sampleCenter =
-                sample.offsetLeft + sample.offsetWidth / 2;
-
-            const distance =
-                Math.abs(sampleCenter - center);
+                const sampleCenter =
+                    sample.offsetLeft
+                    + sample.offsetWidth / 2;
 
 
-            if (distance < closestDistance) {
+                const distance =
+                    Math.abs(
+                        sampleCenter - center
+                    );
 
-                closestDistance = distance;
-                closestIndex = index;
+
+                if (distance < closestDistance) {
+
+                    closestDistance = distance;
+                    closestIndex = index;
+
+                }
 
             }
-
-        });
+        );
 
 
         activeIndex = closestIndex;
 
 
-        samplesInCarousel.forEach((sample, index) => {
+        samplesInCarousel.forEach(
+            (sample, index) => {
 
-            sample.classList.toggle(
-                "active",
-                index === activeIndex
-            );
+                sample.classList.toggle(
+                    "active",
+                    index === activeIndex
+                );
 
-        });
+            }
+        );
 
 
         updateProgress();
@@ -784,13 +854,19 @@ function initializeCarousel(section) {
 
         const progress =
             samplesInCarousel.length > 1
-                ? (activeIndex / (samplesInCarousel.length - 1)) * 100
+                ? (
+                    activeIndex
+                    / (samplesInCarousel.length - 1)
+                ) * 100
                 : 0;
 
 
-        progressFill.style.width = `${progress}%`;
+        progressFill.style.width =
+            `${progress}%`;
 
-        progressMarker.style.left = `${progress}%`;
+
+        progressMarker.style.left =
+            `${progress}%`;
 
 
         counter.textContent =
@@ -809,8 +885,12 @@ function initializeCarousel(section) {
             index = 0;
         }
 
+
         if (index >= samplesInCarousel.length) {
-            index = samplesInCarousel.length - 1;
+
+            index =
+                samplesInCarousel.length - 1;
+
         }
 
 
@@ -825,8 +905,11 @@ function initializeCarousel(section) {
 
 
         carousel.scrollTo({
+
             left: targetLeft,
+
             behavior: "smooth"
+
         });
 
     }
@@ -836,22 +919,28 @@ function initializeCarousel(section) {
      * Previous button
      */
 
-    previousButton.addEventListener("click", () => {
+    previousButton.addEventListener(
+        "click",
+        () => {
 
-        goToSample(activeIndex - 1);
+            goToSample(activeIndex - 1);
 
-    });
+        }
+    );
 
 
     /*
      * Next button
      */
 
-    nextButton.addEventListener("click", () => {
+    nextButton.addEventListener(
+        "click",
+        () => {
 
-        goToSample(activeIndex + 1);
+            goToSample(activeIndex + 1);
 
-    });
+        }
+    );
 
 
     /*
@@ -876,150 +965,87 @@ function initializeCarousel(section) {
 
 
     /*
-     * Initial state
+     * Initial state.
      */
 
-    requestAnimationFrame(() => {
+    requestAnimationFrame(
+        () => {
 
-        /*
-         * The first project starts as active.
-         */
+            updateActiveSample();
 
-        updateActiveSample();
-
-    });
+        }
+    );
 
 
     /*
      * Keyboard accessibility.
      */
 
-    carousel.addEventListener("keydown", event => {
+    carousel.addEventListener(
+        "keydown",
+        event => {
 
-        if (event.key === "ArrowLeft") {
+            if (event.key === "ArrowLeft") {
 
-            goToSample(activeIndex - 1);
+                goToSample(activeIndex - 1);
+
+            }
+
+
+            if (event.key === "ArrowRight") {
+
+                goToSample(activeIndex + 1);
+
+            }
 
         }
-
-        if (event.key === "ArrowRight") {
-
-            goToSample(activeIndex + 1);
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   VIDEO CONTROLS
-   =========================================================
-
-   Recreates the play-button behavior from the original
-   React MediaBox component.
-   ========================================================= */
-
-function initializeVideos() {
-
-    document
-        .querySelectorAll(".video-play-button")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                const mediaContent =
-                    button.closest(".media-content");
-
-                const video =
-                    mediaContent.querySelector("video");
-
-
-                if (!video) {
-                    return;
-                }
-
-
-                video.play();
-
-                button.style.display = "none";
-
-            });
-
-        });
-
-
-    /*
-     * When the video starts playing, remove the custom
-     * play button.
-     */
-
-    document
-        .querySelectorAll(".portfolio-video")
-        .forEach(video => {
-
-            video.addEventListener("play", () => {
-
-                const button =
-                    video.parentElement.querySelector(
-                        ".video-play-button"
-                    );
-
-                if (button) {
-                    button.style.display = "none";
-                }
-
-            });
-
-
-            /*
-             * If video is paused before ending, bring the
-             * play button back.
-             */
-
-            video.addEventListener("pause", () => {
-
-                if (!video.ended) {
-
-                    const button =
-                        video.parentElement.querySelector(
-                            ".video-play-button"
-                        );
-
-                    if (button) {
-                        button.style.display = "flex";
-                    }
-
-                }
-
-            });
-
-        });
+    );
 
 }
 
 
 /* =========================================================
    HTML ESCAPING
-   =========================================================
-
-   These functions prevent project titles/descriptions
-   from accidentally being interpreted as HTML.
    ========================================================= */
 
 function escapeHTML(value) {
 
-    if (value === undefined || value === null) {
+    if (
+        value === undefined ||
+        value === null
+    ) {
+
         return "";
+
     }
 
+
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -1038,6 +1064,7 @@ function escapeAttribute(value) {
 const yearElement =
     document.getElementById("current-year");
 
+
 if (yearElement) {
 
     yearElement.textContent =
@@ -1051,5 +1078,3 @@ if (yearElement) {
    ========================================================= */
 
 createPortfolio();
-
-initializeVideos();
