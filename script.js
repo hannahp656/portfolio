@@ -102,8 +102,8 @@ const samples = [
         description: "Made with After Effects. Focused on heavy-hitting transitions to reduce the static feeling of each image.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229041735",
-        width: 3,
-        height: 4,
+        width: 2,
+        height: 3,
         alt: "Technoblade",
         placeholder: false,
         order: 6
@@ -176,8 +176,8 @@ const samples = [
         description: "Medica icons & graphics animated. Made in After Effects.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229045041",
-        width: 16,
-        height: 9,
+        width: 1,
+        height: 1,
         alt: "Medica Icon Animations",
         placeholder: false,
         order: 1
@@ -213,8 +213,8 @@ const samples = [
         description: "Poetry type animation. Made in After Effects.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229042668",
-        width: 16,
-        height: 9,
+        width: 2,
+        height: 3,
         alt: "Puppet on Strings",
         placeholder: false,
         order: 4
