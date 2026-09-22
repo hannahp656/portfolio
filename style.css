@@ -621,11 +621,20 @@ video {
 /* Actual image/video */
 
 .media-content img,
-.media-content video {
+.media-content video,
+.media-content iframe {
+    display: block;
     width: 100%;
     height: 100%;
+}
 
+.media-content img,
+.media-content video {
     object-fit: cover;
+}
+
+.vimeo-video {
+    border: 0;
 }
 
 
