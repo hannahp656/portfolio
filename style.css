@@ -103,9 +103,6 @@ video {
     overflow: hidden;
 }
 
-
-/* Crop marks */
-
 .crop-mark {
     position: absolute;
     width: 32px;
@@ -118,7 +115,6 @@ video {
 .crop-top-left {
     top: 24px;
     left: 24px;
-
     border-top-width: 4px;
     border-left-width: 4px;
 }
@@ -126,7 +122,6 @@ video {
 .crop-top-right {
     top: 24px;
     right: 24px;
-
     border-top-width: 4px;
     border-right-width: 4px;
 }
@@ -134,7 +129,6 @@ video {
 .crop-bottom-left {
     bottom: 24px;
     left: 24px;
-
     border-bottom-width: 4px;
     border-left-width: 4px;
 }
@@ -142,21 +136,14 @@ video {
 .crop-bottom-right {
     bottom: 24px;
     right: 24px;
-
     border-bottom-width: 4px;
     border-right-width: 4px;
 }
-
-
-/* Hero content */
 
 .hero-content {
     position: relative;
     z-index: 2;
 }
-
-
-/* Record label */
 
 .record-label {
     display: inline-flex;
@@ -164,7 +151,6 @@ video {
     gap: 8px;
 
     margin-bottom: 32px;
-
     padding: 4px 12px;
 
     background: var(--orange);
@@ -182,10 +168,8 @@ video {
 .record-dot {
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
     background: #fff;
-
     animation: pulse 1.5s infinite;
 }
 
@@ -200,9 +184,6 @@ video {
     }
 }
 
-
-/* Hero name */
-
 .hero h1 {
     font-family: var(--display-font);
     font-size: clamp(7rem, 11vw, 14rem);
@@ -210,19 +191,14 @@ video {
     line-height: 0.82;
     letter-spacing: -0.06em;
     text-transform: uppercase;
-
     color: #000;
 }
-
-
-/* Hero title */
 
 .hero-title-row {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     gap: 16px;
-
     margin-top: 8px;
 }
 
@@ -241,25 +217,19 @@ video {
 
 .hero-title-row span {
     color: rgba(0, 0, 0, 0.6);
-
     font-family: var(--mono-font);
     font-size: 14px;
 }
-
-
-/* About cards */
 
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px;
-
     margin-top: 48px;
 }
 
 .info-card {
     padding: 24px;
-
     border: 4px solid #000;
     box-shadow: 6px 6px 0 #000;
 }
@@ -274,9 +244,7 @@ video {
 
 .card-label {
     margin-bottom: 8px;
-
     color: var(--orange);
-
     font-family: var(--mono-font);
     font-size: 12px;
     text-transform: uppercase;
@@ -292,14 +260,10 @@ video {
     line-height: 1.7;
 }
 
-
-/* Scroll indicator */
-
 .scroll-indicator {
     display: flex;
     align-items: center;
     gap: 12px;
-
     margin-top: 40px;
 
     font-family: var(--mono-font);
@@ -336,7 +300,6 @@ video {
     display: flex;
     align-items: center;
     gap: 12px;
-
     margin-bottom: 40px;
 }
 
@@ -345,14 +308,12 @@ video {
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 800;
     line-height: 1;
-
     text-transform: uppercase;
     letter-spacing: -0.04em;
 }
 
 .section-tag {
     padding: 4px 8px;
-
     font-family: var(--mono-font);
     font-size: 14px;
 }
@@ -362,23 +323,17 @@ video {
     color: #000;
 }
 
-
-/* Programs */
-
 .program-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
-
     margin-bottom: 48px;
 }
 
 .program-card {
     padding: 16px;
-
     background: #fff;
     color: #000;
-
     border: 4px solid #000;
 }
 
@@ -427,12 +382,8 @@ video {
     font-family: var(--mono-font);
     font-size: 14px;
     font-weight: 700;
-
     text-transform: uppercase;
 }
-
-
-/* Skill tags */
 
 .skill-tags {
     display: flex;
@@ -471,9 +422,6 @@ video {
     overflow: hidden;
 }
 
-
-/* Giant background section title */
-
 .work-background-title {
     position: absolute;
 
@@ -499,13 +447,9 @@ video {
     user-select: none;
 }
 
-
-/* Section heading */
-
 .work-heading {
     position: relative;
     z-index: 2;
-
     margin-bottom: 32px;
 }
 
@@ -545,7 +489,6 @@ video {
     z-index: 2;
 
     display: flex;
-
     gap: 24px;
 
     overflow-x: auto;
@@ -566,12 +509,25 @@ video {
 }
 
 
-/* Individual sample */
+/* =========================================================
+   INDIVIDUAL SAMPLE
+   ========================================================= */
 
 .sample {
-    flex: 0 0 80vw;
+    /*
+       The JavaScript sets --media-width based on the
+       actual aspect ratio.
 
-    max-width: 600px;
+       This means:
+       3:4  -> max 450px wide
+       1:1  -> max 600px wide
+       4:3  -> max 600px wide
+       16:9 -> max 600px wide
+    */
+
+    flex: 0 0 min(var(--media-max-width, 600px), 80vw);
+    width: min(var(--media-max-width, 600px), 80vw);
+    max-width: min(var(--media-max-width, 600px), 80vw);
 
     scroll-snap-align: center;
 
@@ -592,12 +548,15 @@ video {
 }
 
 
-/* Media */
+/* =========================================================
+   MEDIA
+   ========================================================= */
 
 .media-frame {
     position: relative;
 
     width: 100%;
+    max-width: 100%;
 
     background: #000;
 
@@ -612,25 +571,36 @@ video {
 
     width: 100%;
 
+    /*
+       The JavaScript sets the real aspect ratio here.
+       Example: 3 / 4 for the Mulan edit.
+    */
+    aspect-ratio: var(--media-ratio, 16 / 9);
+
+    max-height: var(--media-max-height, 600px);
+
     background: #000;
 
     overflow: hidden;
 }
 
 
-/* Actual image/video */
+/* Actual image/video/iframe */
 
 .media-content img,
 .media-content video,
 .media-content iframe {
     display: block;
+
     width: 100%;
     height: 100%;
+
+    border: 0;
 }
 
 .media-content img,
 .media-content video {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .vimeo-video {
@@ -673,10 +643,14 @@ video {
 }
 
 
-/* Placeholder */
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
 
 .media-placeholder {
-    min-height: 338px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
 
     display: flex;
     flex-direction: column;
@@ -737,7 +711,9 @@ video {
 }
 
 
-/* Custom video play button */
+/* =========================================================
+   CUSTOM VIDEO PLAY BUTTON
+   ========================================================= */
 
 .video-play-button {
     position: absolute;
@@ -786,9 +762,13 @@ video {
 }
 
 
-/* Sample information */
+/* =========================================================
+   SAMPLE INFORMATION
+   ========================================================= */
 
 .sample-info {
+    width: 100%;
+
     margin-top: 16px;
 
     padding: 16px;
@@ -834,9 +814,6 @@ video {
     gap: 16px;
 }
 
-
-/* Previous/next buttons */
-
 .carousel-button {
     width: 40px;
     height: 40px;
@@ -863,9 +840,6 @@ video {
     background: var(--orange);
     color: #fff;
 }
-
-
-/* Progress */
 
 .progress-track {
     position: relative;
@@ -907,9 +881,6 @@ video {
 
     transition: left 0.2s ease;
 }
-
-
-/* Counter */
 
 .carousel-meta {
     display: flex;
@@ -1137,11 +1108,9 @@ video {
     }
 
     .sample {
-        flex-basis: 84vw;
-    }
-
-    .media-placeholder {
-        min-height: 260px;
+        flex-basis: min(var(--media-max-width, 600px), 84vw);
+        width: min(var(--media-max-width, 600px), 84vw);
+        max-width: min(var(--media-max-width, 600px), 84vw);
     }
 
     .placeholder-title {
