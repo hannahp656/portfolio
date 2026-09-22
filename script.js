@@ -116,63 +116,121 @@ const samples = [
 
     {
         section: "Film",
-        title: "Film Project",
-        description: "Add a short description of this film project.",
-        mediaType: "video",
-        media: "videos/film-01.mp4",
-        cover: "images/film-01-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Film project",
-        placeholder: true,
+        title: "The Abuse of Russian Female Figure Skaters",
+        description: "Premiere Pro. Full video essay on YouTube. Research, story, script, clip sourcing, arrangement, and editing all done by me.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229042488",
+        width: 16,
+        height: 9,
+        alt: "The Abuse of Russian Female Figure Skaters",
+        placeholder: false,
         order: 1
     },
 
     {
         section: "Film",
-        title: "Film Project 02",
-        description: "Add a short description of this film project.",
-        mediaType: "video",
-        media: "videos/film-02.mp4",
-        cover: "images/film-02-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Film project",
-        placeholder: true,
+        title: "Medica Commercial",
+        description: "Made with Premiere Pro. Created during my internship with a healthcare organization.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229046370",
+        width: 16,
+        height: 9,
+        alt: "Medica Commercial",
+        placeholder: false,
         order: 2
     },
-
+   
+   {
+        section: "Film",
+        title: "Lemon Aide Society Promotional Video",
+        description: "Promotional video for a girls leadership organization. Made in Premiere Pro.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229272365",
+        width: 16,
+        height: 9,
+        alt: "Lemon Aide Society Promotional Video",
+        placeholder: false,
+        order: 3
+    },
+{
+        section: "Film",
+        title: "Raina, Title Design",
+        description: "Made with Premiere Pro. Title design practice.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229042500",
+        width: 16,
+        height: 9,
+        alt: "Medica Commercial",
+        placeholder: false,
+        order: 4
+    },
 
     /* =====================================================
        03 — MOTION
        ===================================================== */
 
-    {
+    
+   {
         section: "Motion",
-        title: "Motion Graphics Project",
-        description: "Add a short description of this motion project.",
-        mediaType: "video",
-        media: "videos/motion-01.mp4",
-        cover: "images/motion-01-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Motion graphics project",
-        placeholder: true,
+        title: "Medica Icon Animations",
+        description: "Medica icons & graphics animated. Made in After Effects.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229045041",
+        width: 16,
+        height: 9,
+        alt: "Medica Icon Animations",
+        placeholder: false,
         order: 1
+    },
+   {
+        section: "Motion",
+        title: "Do Not Trust the Eraser",
+        description: "Poetry type animation. Made in After Effects.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229042307",
+        width: 16,
+        height: 9,
+        alt: "Do not trust the eraser",
+        placeholder: false,
+        order: 2
+    },
+   
+   {
+        section: "Motion",
+        title: "Medica Holiday Video - DRAFT",
+        description: "First draft of a concept for Medica's holiday video campaign.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229045083",
+        width: 9,
+        height: 16,
+        alt: "Medica Holiday Video - DRAFT",
+        placeholder: false,
+        order: 3
+    },
+   {
+        section: "Motion",
+        title: "Puppet on Strings",
+        description: "Poetry type animation. Made in After Effects.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229042668",
+        width: 16,
+        height: 9,
+        alt: "Puppet on Strings",
+        placeholder: false,
+        order: 4
     },
 
     {
         section: "Motion",
-        title: "Motion Project 02",
-        description: "Add a short description of this animation.",
-        mediaType: "video",
-        media: "videos/motion-02.mp4",
-        cover: "images/motion-02-cover.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Motion graphics project",
-        placeholder: true,
-        order: 2
+        title: "Animation Project",
+        description: "Hand drawn animation with effects added during editing.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229043010",
+        width: 16,
+        height: 9,
+        alt: "Animation project",
+        placeholder: false,
+        order: 5
     },
 
 
@@ -299,9 +357,47 @@ const samples = [
         order: 2
     },
 
-
+ /* =====================================================
+       08 — Digital Game Design
+       ===================================================== */
+   {
+        section: "Digital Game Design",
+        title: "Platformer Game",
+        description: "Playthrough of platformer game created with Unity.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229046618",
+        width: 16,
+        height: 9,
+        alt: "Platformer Game",
+        placeholder: false,
+        order: 1
+    },
+   {
+        section: "Digital Game Design",
+        title: "Jumping Game",
+        description: "Playthrough of a simple jump-based game created with Unity.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229046369",
+        width: 16,
+        height: 9,
+        alt: "Jumping Game",
+        placeholder: false,
+        order: 2
+    },
+   {
+        section: "Digital Game Design",
+        title: "Ball Catching Game",
+        description: "Coding practice. Simple game created with Unity.",
+        mediaType: "vimeo",
+        media: "https://vimeo.com/1229041912",
+        width: 16,
+        height: 9,
+        alt: "Ball Catching Game",
+        placeholder: false,
+        order: 3
+    },
     /* =====================================================
-       08 — 3D & SPATIAL
+       09 — 3D & SPATIAL
        ===================================================== */
 
     {
@@ -345,6 +441,7 @@ const sectionOrder = [
     "Web & Interface",
     "Graphic Design",
     "Editorial",
+    "Digital Game Design",
     "3D & Spatial"
 ];
 
