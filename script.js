@@ -60,8 +60,7 @@ const samples = [
         placeholder: false,
         order: 2
     },
-
-    {
+   {
         section: "Visual Editing",
         title: "Anne with an E",
         description: "Made with After Effects. Typography practice.",
@@ -73,8 +72,7 @@ const samples = [
         placeholder: false,
         order: 3
     },
-
-    {
+   {
         section: "Visual Editing",
         title: "Toph, Avatar the Last Airbender",
         description: "Made with After Effects. Twixtor and shake experimentation.",
@@ -86,8 +84,7 @@ const samples = [
         placeholder: false,
         order: 4
     },
-
-    {
+   {
         section: "Visual Editing",
         title: "Renee, All for the Game",
         description: "Made with After Effects. Practicing working with static images.",
@@ -99,8 +96,7 @@ const samples = [
         placeholder: false,
         order: 5
     },
-
-    {
+   {
         section: "Visual Editing",
         title: "Technoblade",
         description: "Made with After Effects. Focused on heavy-hitting transitions to reduce the static feeling of each image.",
@@ -143,8 +139,8 @@ const samples = [
         placeholder: false,
         order: 2
     },
-
-    {
+   
+   {
         section: "Film",
         title: "Lemon Aide Society Promotional Video",
         description: "Promotional video for a girls leadership organization. Made in Premiere Pro.",
@@ -156,8 +152,7 @@ const samples = [
         placeholder: false,
         order: 3
     },
-
-    {
+{
         section: "Film",
         title: "Raina, Title Design",
         description: "Made with Premiere Pro. Title design practice.",
@@ -165,17 +160,17 @@ const samples = [
         media: "https://vimeo.com/1229042500",
         width: 16,
         height: 9,
-        alt: "Raina, Title Design",
+        alt: "Medica Commercial",
         placeholder: false,
         order: 4
     },
-
 
     /* =====================================================
        03 — MOTION
        ===================================================== */
 
-    {
+    
+   {
         section: "Motion",
         title: "Medica Icon Animations",
         description: "Medica icons & graphics animated. Made in After Effects.",
@@ -187,8 +182,7 @@ const samples = [
         placeholder: false,
         order: 1
     },
-
-    {
+   {
         section: "Motion",
         title: "Do Not Trust the Eraser",
         description: "Poetry type animation. Made in After Effects.",
@@ -200,8 +194,8 @@ const samples = [
         placeholder: false,
         order: 2
     },
-
-    {
+   
+   {
         section: "Motion",
         title: "Medica Holiday Video - DRAFT",
         description: "First draft of a concept for Medica's holiday video campaign.",
@@ -213,8 +207,7 @@ const samples = [
         placeholder: false,
         order: 3
     },
-
-    {
+   {
         section: "Motion",
         title: "Puppet on Strings",
         description: "Poetry type animation. Made in After Effects.",
@@ -364,15 +357,13 @@ const samples = [
         order: 2
     },
 
-
-    /* =====================================================
-       08 — DIGITAL GAME DESIGN
+ /* =====================================================
+       08 — Digital Game Design
        ===================================================== */
-
-    {
+   {
         section: "Digital Game Design",
         title: "Platformer Game",
-        description: "A platformer game created in Unity.",
+        description: "Playthrough of platformer game created with Unity.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229046618",
         width: 16,
@@ -381,11 +372,10 @@ const samples = [
         placeholder: false,
         order: 1
     },
-
-    {
+   {
         section: "Digital Game Design",
         title: "Jumping Game",
-        description: "A jumping game created in Unity.",
+        description: "Playthrough of a simple jump-based game created with Unity.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229046369",
         width: 16,
@@ -394,11 +384,10 @@ const samples = [
         placeholder: false,
         order: 2
     },
-
-    {
+   {
         section: "Digital Game Design",
         title: "Ball Catching Game",
-        description: "A ball catching game created in Unity.",
+        description: "Coding practice. Simple game created with Unity.",
         mediaType: "vimeo",
         media: "https://vimeo.com/1229041912",
         width: 16,
@@ -407,18 +396,16 @@ const samples = [
         placeholder: false,
         order: 3
     },
-
-
     /* =====================================================
        09 — 3D & SPATIAL
        ===================================================== */
 
     {
         section: "3D & Spatial",
-        title: "3D Project",
-        description: "Add a short description of this spatial design project.",
+        title: "3D & Spatial Project",
+        description: "Add a short description of this 3D or spatial project.",
         mediaType: "image",
-        media: "images/spatial-01.jpg",
+        media: "images/3d-spatial-01.jpg",
         width: 1600,
         height: 1200,
         alt: "3D and spatial design project",
@@ -429,9 +416,9 @@ const samples = [
     {
         section: "3D & Spatial",
         title: "Spatial Project 02",
-        description: "Add a short description of this spatial design project.",
+        description: "Add a short description of this spatial project.",
         mediaType: "image",
-        media: "images/spatial-02.jpg",
+        media: "images/3d-spatial-02.jpg",
         width: 1600,
         height: 1200,
         alt: "3D and spatial design project",
@@ -460,1005 +447,502 @@ const sectionOrder = [
 
 
 /* =========================================================
-   CREATE PORTFOLIO
+   GENERATE PORTFOLIO
    ========================================================= */
+
+const portfolio = document.getElementById("portfolio");
+
 
 function createPortfolio() {
 
-    const portfolio =
-        document.getElementById("portfolio");
-
-
-    if (!portfolio) {
-        return;
-    }
-
-
     portfolio.innerHTML = "";
 
+    sectionOrder.forEach((sectionName, sectionIndex) => {
 
-    sectionOrder.forEach(
-        (sectionName, sectionIndex) => {
+        const sectionSamples = samples
+            .filter(sample => sample.section === sectionName)
+            .sort((a, b) => a.order - b.order);
 
-            const sectionSamples =
-                samples
 
-                    .filter(
-                        sample =>
-                            sample.section === sectionName
-                    )
+        /*
+         * If a section has no projects, don't display it.
+         */
 
-                    .sort(
-                        (a, b) =>
-                            a.order - b.order
-                    );
-
-
-            if (!sectionSamples.length) {
-                return;
-            }
-
-
-            const section =
-                document.createElement("section");
-
-
-            section.className =
-                "work-section";
-
-
-            section.dataset.section =
-                sectionName;
-
-
-            /*
-             * Large background section title.
-             */
-
-            const backgroundTitle =
-                document.createElement("div");
-
-
-            backgroundTitle.className =
-                "work-bg-title";
-
-
-            backgroundTitle.textContent =
-                sectionName;
-
-
-            section.appendChild(
-                backgroundTitle
-            );
-
-
-            /*
-             * Section heading.
-             */
-
-            const heading =
-                document.createElement("div");
-
-
-            heading.className =
-                "work-heading";
-
-
-            const headingInner =
-                document.createElement("div");
-
-
-            headingInner.className =
-                "work-heading-inner";
-
-
-            const number =
-                document.createElement("span");
-
-
-            number.className =
-                "work-number";
-
-
-            number.textContent =
-                String(sectionIndex + 1)
-                    .padStart(2, "0");
-
-
-            const headingTitle =
-                document.createElement("h3");
-
-
-            headingTitle.textContent =
-                sectionName;
-
-
-            headingInner.appendChild(
-                number
-            );
-
-
-            headingInner.appendChild(
-                headingTitle
-            );
-
-
-            heading.appendChild(
-                headingInner
-            );
-
-
-            section.appendChild(
-                heading
-            );
-
-
-            /*
-             * Carousel wrapper.
-             */
-
-            const carouselWrapper =
-                document.createElement("div");
-
-
-            carouselWrapper.className =
-                "carousel-wrapper";
-
-
-            /*
-             * Carousel.
-             */
-
-            const carousel =
-                document.createElement("div");
-
-
-            carousel.className =
-                "carousel";
-
-
-            carousel.tabIndex = 0;
-
-
-            /*
-             * Create three copies of the sample list.
-             *
-             * The middle copy is the "real" copy.
-             * This allows the carousel to loop endlessly
-             * in either direction.
-             */
-
-            const carouselSamples = [
-                ...sectionSamples,
-                ...sectionSamples,
-                ...sectionSamples
-            ];
-
-
-            carouselSamples.forEach(
-                (sample, index) => {
-
-                    const sampleElement =
-                        createSampleHTML(
-                            sample,
-                            index % sectionSamples.length
-                        );
-
-
-                    sampleElement.dataset.physicalIndex =
-                        index;
-
-
-                    sampleElement.dataset.logicalIndex =
-                        index % sectionSamples.length;
-
-
-                    carousel.appendChild(
-                        sampleElement
-                    );
-
-                }
-            );
-
-
-            carouselWrapper.appendChild(
-                carousel
-            );
-
-
-            /*
-             * Previous button.
-             */
-
-            const previousButton =
-                document.createElement("button");
-
-
-            previousButton.className =
-                "carousel-button carousel-button-prev";
-
-
-            previousButton.type =
-                "button";
-
-
-            previousButton.setAttribute(
-                "aria-label",
-                `Previous ${sectionName} project`
-            );
-
-
-            previousButton.innerHTML =
-                "←";
-
-
-            /*
-             * Next button.
-             */
-
-            const nextButton =
-                document.createElement("button");
-
-
-            nextButton.className =
-                "carousel-button carousel-button-next";
-
-
-            nextButton.type =
-                "button";
-
-
-            nextButton.setAttribute(
-                "aria-label",
-                `Next ${sectionName} project`
-            );
-
-
-            nextButton.innerHTML =
-                "→";
-
-
-            carouselWrapper.appendChild(
-                previousButton
-            );
-
-
-            carouselWrapper.appendChild(
-                nextButton
-            );
-
-
-            section.appendChild(
-                carouselWrapper
-            );
-
-
-            /*
-             * Carousel controls.
-             */
-
-            const controls =
-                document.createElement("div");
-
-
-            controls.className =
-                "carousel-controls";
-
-
-            const progress =
-                document.createElement("div");
-
-
-            progress.className =
-                "carousel-progress";
-
-
-            const progressTrack =
-                document.createElement("div");
-
-
-            progressTrack.className =
-                "carousel-progress-track";
-
-
-            const progressFill =
-                document.createElement("div");
-
-
-            progressFill.className =
-                "carousel-progress-fill";
-
-
-            const progressMarker =
-                document.createElement("div");
-
-
-            progressMarker.className =
-                "carousel-progress-marker";
-
-
-            progressTrack.appendChild(
-                progressFill
-            );
-
-
-            progressTrack.appendChild(
-                progressMarker
-            );
-
-
-            progress.appendChild(
-                progressTrack
-            );
-
-
-            const counter =
-                document.createElement("div");
-
-
-            counter.className =
-                "carousel-counter";
-
-
-            counter.textContent =
-                `01 / ${String(sectionSamples.length).padStart(2, "0")}`;
-
-
-            const sectionLabel =
-                document.createElement("div");
-
-
-            sectionLabel.className =
-                "carousel-section-name";
-
-
-            sectionLabel.textContent =
-                sectionName;
-
-
-            controls.appendChild(
-                progress
-            );
-
-
-            controls.appendChild(
-                counter
-            );
-
-
-            controls.appendChild(
-                sectionLabel
-            );
-
-
-            section.appendChild(
-                controls
-            );
-
-
-            portfolio.appendChild(
-                section
-            );
-
-
-            initializeCarousel(
-                carousel,
-                sectionSamples,
-                previousButton,
-                nextButton,
-                progressFill,
-                progressMarker,
-                counter
-            );
-
+        if (sectionSamples.length === 0) {
+            return;
         }
-    );
-
-}
 
 
-/* =========================================================
-   CREATE SAMPLE HTML
-   ========================================================= */
+        const section = document.createElement("section");
 
-function createSampleHTML(
-    sample,
-    logicalIndex
-) {
-
-    const article =
-        document.createElement("article");
+        section.className = "work-section";
 
 
-    article.className =
-        "sample";
+        section.innerHTML = `
+
+            <div class="work-background-title">
+                ${escapeHTML(sectionName)}
+            </div>
 
 
-    if (logicalIndex === 0) {
+            <div class="container">
 
-        article.classList.add(
-            "active"
-        );
+                <div class="work-heading">
 
-    }
+                    <div class="work-heading-inner">
 
+                        <span class="work-number">
+                            ${String(sectionIndex + 1).padStart(2, "0")}
+                        </span>
 
-    article.dataset.logicalIndex =
-        logicalIndex;
+                        <h3>
+                            ${escapeHTML(sectionName)}
+                        </h3>
 
+                    </div>
 
-    /*
-     * Calculate the aspect ratio.
-     */
+                </div>
 
-    const width =
-        Number(sample.width) || 16;
-
-
-    const height =
-        Number(sample.height) || 9;
+            </div>
 
 
-    const ratio =
-        width / height;
+            <div
+                class="carousel"
+                data-section="${escapeAttribute(sectionName)}"
+            >
+
+                ${sectionSamples
+                    .map((sample, index) =>
+                        createSampleHTML(sample, index)
+                    )
+                    .join("")}
+
+            </div>
 
 
-    /*
-     * The sample must fit inside:
-     *
-     * 800px wide
-     * 700px tall
-     *
-     * while preserving its aspect ratio.
-     */
+            <div class="container">
 
-    const maxWidth =
-        800;
+                <div class="carousel-controls">
 
+                    <div class="controls-row">
 
-    const maxHeight =
-        700;
+                        <button
+                            class="carousel-button previous-button"
+                            type="button"
+                            aria-label="Previous sample"
+                        >
+                            ◀
+                        </button>
 
 
-    let sampleWidth =
-        maxWidth;
+                        <div class="progress-track">
+
+                            <div class="progress-fill"></div>
+
+                            <div class="progress-marker"></div>
+
+                        </div>
 
 
-    let sampleHeight =
-        sampleWidth / ratio;
+                        <button
+                            class="carousel-button next-button"
+                            type="button"
+                            aria-label="Next sample"
+                        >
+                            ▶
+                        </button>
+
+                    </div>
 
 
-    if (sampleHeight > maxHeight) {
+                    <div class="carousel-meta">
 
-        sampleHeight =
-            maxHeight;
+                        <span class="carousel-counter">
+                            01 / ${String(sectionSamples.length).padStart(2, "0")}
+                        </span>
 
+                        <span>
+                            ${escapeHTML(sectionName)}
+                        </span>
 
-        sampleWidth =
-            sampleHeight * ratio;
+                    </div>
 
-    }
+                </div>
 
+            </div>
 
-    /*
-     * Store the calculated dimensions as CSS variables.
-     */
-
-    article.style.setProperty(
-        "--sample-width",
-        `${sampleWidth}px`
-    );
-
-
-    article.style.setProperty(
-        "--sample-height",
-        `${sampleHeight}px`
-    );
-
-
-    article.style.setProperty(
-        "--sample-max-width",
-        `${sampleWidth}px`
-    );
-
-
-    /*
-     * Media frame.
-     */
-
-    const mediaFrame =
-        document.createElement("div");
-
-
-    mediaFrame.className =
-        "sample-media";
-
-
-    mediaFrame.style.aspectRatio =
-        `${width} / ${height}`;
-
-
-    mediaFrame.dataset.mediaType =
-        sample.mediaType;
-
-
-    /*
-     * Placeholder.
-     */
-
-    if (sample.placeholder) {
-
-        const placeholder =
-            document.createElement("div");
-
-
-        placeholder.className =
-            "sample-placeholder";
-
-
-        placeholder.innerHTML = `
-            <span>PROJECT PREVIEW</span>
         `;
 
 
-        mediaFrame.appendChild(
-            placeholder
-        );
+        portfolio.appendChild(section);
+
+        initializeCarousel(section);
+
+    });
+
+}
+
+
+/* =========================================================
+   CREATE SAMPLE
+   ========================================================= */
+
+function createSampleHTML(sample, index) {
+
+    const activeClass =
+        index === 0 ? "active" : "";
+
+
+    const aspectRatio =
+        sample.width && sample.height
+            ? `${sample.width} / ${sample.height}`
+            : "16 / 9";
+
+
+    let mediaHTML;
+
+
+    /* =====================================================
+       PLACEHOLDER
+       ===================================================== */
+
+    if (sample.placeholder) {
+
+        const placeholderType =
+            sample.mediaType === "vimeo"
+                ? "VIMEO"
+                : sample.mediaType === "video"
+                    ? "VIDEO"
+                    : "IMAGE";
+
+
+        mediaHTML = `
+
+            <div
+                class="media-content"
+                style="aspect-ratio: ${aspectRatio};"
+            >
+
+                <div class="media-placeholder">
+
+                    <div class="placeholder-type">
+                        ${placeholderType}
+                    </div>
+
+                    <div class="placeholder-title">
+                        ADD MEDIA HERE
+                    </div>
+
+                    <div class="placeholder-path">
+                        ${escapeHTML(sample.media)}
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
 
     }
 
 
-    /*
-     * Image.
-     */
+    /* =====================================================
+       IMAGE
+       ===================================================== */
 
-    else if (
-        sample.mediaType === "image"
-    ) {
+    else if (sample.mediaType === "image") {
 
-        const image =
-            document.createElement("img");
+        mediaHTML = `
 
+            <div
+                class="media-content"
+                style="aspect-ratio: ${aspectRatio};"
+            >
 
-        image.src =
-            sample.media;
+                <img
+                    src="${escapeAttribute(sample.media)}"
+                    alt="${escapeAttribute(sample.alt || sample.title)}"
+                    loading="lazy"
+                >
 
+            </div>
 
-        image.alt =
-            sample.alt || sample.title;
-
-
-        image.loading =
-            "lazy";
-
-
-        mediaFrame.appendChild(
-            image
-        );
+        `;
 
     }
 
 
-    /*
-     * Vimeo.
-     */
+    /* =====================================================
+       VIMEO VIDEO
+       ===================================================== */
 
-    else if (
-        sample.mediaType === "vimeo"
-    ) {
+    else if (sample.mediaType === "vimeo") {
 
-        const iframe =
-            document.createElement("iframe");
+        const vimeoURL =
+            createVimeoEmbedURL(sample.media);
 
 
-        iframe.src =
-            createVimeoEmbedURL(
-                sample.media
+        mediaHTML = `
+
+            <div
+                class="media-content"
+                style="aspect-ratio: ${aspectRatio};"
+            >
+
+                <iframe
+                    class="vimeo-video"
+                    src="${escapeAttribute(vimeoURL)}"
+                    title="${escapeAttribute(sample.title)}"
+                    loading="lazy"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       LOCAL VIDEO FILE
+       ===================================================== */
+
+    else {
+
+        const poster =
+            sample.cover
+                ? `poster="${escapeAttribute(sample.cover)}"`
+                : "";
+
+
+        mediaHTML = `
+
+            <div
+                class="media-content"
+                style="aspect-ratio: ${aspectRatio};"
+            >
+
+                <video
+                    class="portfolio-video"
+                    src="${escapeAttribute(sample.media)}"
+                    ${poster}
+                    preload="metadata"
+                    playsinline
+                    controls
+                ></video>
+
+            </div>
+
+        `;
+
+    }
+
+
+    return `
+
+        <article
+            class="sample ${activeClass}"
+            data-sample
+        >
+
+            <div class="media-frame">
+
+                ${
+                    index === 0
+                        ? `
+                            <div class="media-record">
+                                <span class="media-record-dot"></span>
+                                REC
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                ${mediaHTML}
+
+            </div>
+
+
+            <div class="sample-info">
+
+                <h4 class="sample-title">
+                    ${escapeHTML(sample.title)}
+                </h4>
+
+                <p class="sample-description">
+                    ${escapeHTML(sample.description || "")}
+                </p>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   VIMEO URL
+   =========================================================
+
+   Accepts:
+
+   https://vimeo.com/123456789
+
+   and converts it into:
+
+   https://player.vimeo.com/video/123456789
+   ========================================================= */
+
+function createVimeoEmbedURL(urlString) {
+
+    try {
+
+        const url =
+            new URL(urlString);
+
+
+        /*
+         * Extract the numeric Vimeo video ID.
+         */
+
+        const pathParts =
+            url.pathname
+                .split("/")
+                .filter(Boolean);
+
+
+        /*
+         * The video ID is the last numeric-looking
+         * part of the URL.
+         */
+
+        let videoID = "";
+
+
+        for (let i = pathParts.length - 1; i >= 0; i--) {
+
+            if (/^\d+$/.test(pathParts[i])) {
+
+                videoID = pathParts[i];
+
+                break;
+
+            }
+
+        }
+
+
+        if (!videoID) {
+
+            console.error(
+                "Could not find Vimeo video ID:",
+                urlString
             );
 
+            return urlString;
 
-        iframe.title =
-            sample.title;
-
-
-        iframe.allow =
-            "autoplay; fullscreen; picture-in-picture";
+        }
 
 
-        iframe.allowFullscreen =
-            true;
+        /*
+         * Vimeo player parameters.
+         *
+         * title=0
+         * Hide video title when supported.
+         *
+         * byline=0
+         * Hide creator information when supported.
+         *
+         * portrait=0
+         * Hide creator avatar when supported.
+         *
+         * dnt=1
+         * Enable Do Not Track mode.
+         */
 
-
-        iframe.loading =
-            "lazy";
-
-
-        iframe.dataset.vimeo =
-            "true";
-
-
-        mediaFrame.appendChild(
-            iframe
+        return (
+            `https://player.vimeo.com/video/${videoID}` +
+            `?title=0&byline=0&portrait=0&dnt=1`
         );
+
+    } catch (error) {
+
+        console.error(
+            "Could not create Vimeo embed URL:",
+            urlString
+        );
+
+
+        return urlString;
 
     }
-
-
-    /*
-     * Local video.
-     */
-
-    else if (
-        sample.mediaType === "video"
-    ) {
-
-        const video =
-            document.createElement("video");
-
-
-        video.src =
-            sample.media;
-
-
-        video.controls =
-            true;
-
-
-        video.playsInline =
-            true;
-
-
-        video.preload =
-            "metadata";
-
-
-        mediaFrame.appendChild(
-            video
-        );
-
-    }
-
-
-    /*
-     * REC indicator.
-     */
-
-    if (logicalIndex === 0) {
-
-        const recordLabel =
-            document.createElement("div");
-
-
-        recordLabel.className =
-            "sample-rec";
-
-
-        recordLabel.innerHTML =
-            "<span></span> REC";
-
-
-        mediaFrame.appendChild(
-            recordLabel
-        );
-
-    }
-
-
-    article.appendChild(
-        mediaFrame
-    );
-
-
-    /*
-     * Sample information.
-     */
-
-    const info =
-        document.createElement("div");
-
-
-    info.className =
-        "sample-info";
-
-
-    const title =
-        document.createElement("h4");
-
-
-    title.textContent =
-        sample.title;
-
-
-    const description =
-        document.createElement("p");
-
-
-    description.className =
-        "sample-description";
-
-
-    description.innerHTML =
-        formatDescription(
-            sample.description || ""
-        );
-
-
-    info.appendChild(
-        title
-    );
-
-
-    info.appendChild(
-        description
-    );
-
-
-    article.appendChild(
-        info
-    );
-
-
-    return article;
 
 }
 
 
 /* =========================================================
-   VIMEO EMBED URL
+   CAROUSEL
    ========================================================= */
 
-function createVimeoEmbedURL(
-    url
-) {
+function initializeCarousel(section) {
 
-    const match =
-        String(url).match(
-            /vimeo\.com\/(?:video\/)?(\d+)/
-        );
-
-
-    if (!match) {
-
-        return url;
-
-    }
-
-
-    const videoID =
-        match[1];
-
-
-    return (
-        `https://player.vimeo.com/video/${videoID}` +
-        `?title=0` +
-        `&byline=0` +
-        `&portrait=0` +
-        `&dnt=1`
-    );
-
-}
-
-
-/* =========================================================
-   PAUSE MEDIA
-   ========================================================= */
-
-function pauseMedia(
-    sampleElement
-) {
-
-    if (!sampleElement) {
-        return;
-    }
-
-
-    /*
-     * Pause local videos.
-     */
-
-    sampleElement
-        .querySelectorAll("video")
-        .forEach(video => {
-
-            video.pause();
-
-        });
-
-
-    /*
-     * Pause Vimeo videos.
-     *
-     * The Vimeo Player SDK is loaded dynamically below.
-     */
-
-    sampleElement
-        .querySelectorAll(
-            'iframe[data-vimeo="true"]'
-        )
-        .forEach(iframe => {
-
-            if (
-                window.Vimeo &&
-                window.Vimeo.Player
-            ) {
-
-                try {
-
-                    const player =
-                        new window.Vimeo.Player(
-                            iframe
-                        );
-
-
-                    player.pause().catch(
-                        () => {}
-                    );
-
-                }
-
-                catch (error) {
-
-                    /*
-                     * Ignore player errors.
-                     * The iframe may not have initialized yet.
-                     */
-
-                }
-
-            }
-
-        });
-
-}
-
-
-/* =========================================================
-   PAUSE ALL INACTIVE MEDIA
-   ========================================================= */
-
-function pauseInactiveMedia(
-    activeSample
-) {
-
-    document
-        .querySelectorAll(".sample")
-        .forEach(sample => {
-
-            if (sample !== activeSample) {
-
-                pauseMedia(
-                    sample
-                );
-
-            }
-
-        });
-
-}
-
-
-/* =========================================================
-   LOAD VIMEO PLAYER SDK
-   ========================================================= */
-
-function loadVimeoSDK() {
-
-    if (
-        window.Vimeo &&
-        window.Vimeo.Player
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        document.querySelector(
-            'script[data-vimeo-player-sdk="true"]'
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    const script =
-        document.createElement("script");
-
-
-    script.src =
-        "https://player.vimeo.com/api/player.js";
-
-
-    script.async =
-        true;
-
-
-    script.dataset.vimeoPlayerSdk =
-        "true";
-
-
-    document.head.appendChild(
-        script
-    );
-
-}
-
-
-loadVimeoSDK();
-
-
-/* =========================================================
-   INITIALIZE CAROUSEL
-   ========================================================= */
-
-function initializeCarousel(
-    carousel,
-    sectionSamples,
-    previousButton,
-    nextButton,
-    progressFill,
-    progressMarker,
-    counter
-) {
-
-    const sampleCount =
-        sectionSamples.length;
-
-
-    if (!sampleCount) {
-        return;
-    }
+    const carousel =
+        section.querySelector(".carousel");
 
 
     const samplesInCarousel =
         Array.from(
-            carousel.querySelectorAll(
-                ".sample"
-            )
+            carousel.querySelectorAll("[data-sample]")
         );
 
 
+    const previousButton =
+        section.querySelector(".previous-button");
+
+
+    const nextButton =
+        section.querySelector(".next-button");
+
+
+    const progressFill =
+        section.querySelector(".progress-fill");
+
+
+    const progressMarker =
+        section.querySelector(".progress-marker");
+
+
+    const counter =
+        section.querySelector(".carousel-counter");
+
+
+    if (samplesInCarousel.length === 0) {
+        return;
+    }
+
+
+    let activeIndex = 0;
+
+
     /*
-     * The carousel contains:
-     *
-     * [COPY 1] [COPY 2] [COPY 3]
-     *
-     * We keep the user in the middle copy.
+     * Find which card is closest to the center
+     * of the carousel.
      */
 
-    const middleStart =
-        sampleCount;
-
-
-    let activePhysicalIndex =
-        middleStart;
-
-
-    let scrollCorrectionPending =
-        false;
-
-
-    /*
-     * Get the sample closest to the center
-     * of the visible carousel.
-     */
-
-    function getClosestSample() {
+    function updateActiveSample() {
 
         const center =
             carousel.scrollLeft
             + carousel.clientWidth / 2;
 
 
-        let closestIndex =
-            0;
-
-
-        let closestDistance =
-            Infinity;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
 
 
         samplesInCarousel.forEach(
@@ -1475,17 +959,10 @@ function initializeCarousel(
                     );
 
 
-                if (
-                    distance <
-                    closestDistance
-                ) {
+                if (distance < closestDistance) {
 
-                    closestDistance =
-                        distance;
-
-
-                    closestIndex =
-                        index;
+                    closestDistance = distance;
+                    closestIndex = index;
 
                 }
 
@@ -1493,199 +970,18 @@ function initializeCarousel(
         );
 
 
-        return closestIndex;
+        activeIndex = closestIndex;
 
-    }
-
-
-    /*
-     * Convert a physical copy into a logical index.
-     */
-
-    function getLogicalIndex(
-        physicalIndex
-    ) {
-
-        return (
-            (
-                physicalIndex % sampleCount
-                + sampleCount
-            ) % sampleCount
-        );
-
-    }
-
-
-    /*
-     * Update active sample.
-     */
-
-    function updateActiveSample() {
-
-        const closestIndex =
-            getClosestSample();
-
-
-        /*
-         * Keep the active state visually updated.
-         */
 
         samplesInCarousel.forEach(
             (sample, index) => {
 
                 sample.classList.toggle(
                     "active",
-                    index === closestIndex
+                    index === activeIndex
                 );
 
             }
-        );
-
-
-        /*
-         * If the user reaches either outside copy,
-         * quietly move them back to the corresponding
-         * position in the middle copy.
-         */
-
-        const minimumIndex =
-            sampleCount;
-
-
-        const maximumIndex =
-            sampleCount * 2 - 1;
-
-
-        if (
-            closestIndex < minimumIndex ||
-            closestIndex > maximumIndex
-        ) {
-
-            if (
-                scrollCorrectionPending
-            ) {
-
-                return;
-
-            }
-
-
-            scrollCorrectionPending =
-                true;
-
-
-            const logicalIndex =
-                getLogicalIndex(
-                    closestIndex
-                );
-
-
-            const targetIndex =
-                middleStart
-                + logicalIndex;
-
-
-            /*
-             * Preserve the user's visual position while
-             * switching to the middle copy.
-             */
-
-            const currentSample =
-                samplesInCarousel[
-                    closestIndex
-                ];
-
-
-            const targetSample =
-                samplesInCarousel[
-                    targetIndex
-                ];
-
-
-            const currentCenter =
-                currentSample.offsetLeft
-                + currentSample.offsetWidth / 2;
-
-
-            const currentScrollCenter =
-                carousel.scrollLeft
-                + carousel.clientWidth / 2;
-
-
-            const offsetFromCenter =
-                currentCenter
-                - currentScrollCenter;
-
-
-            const targetCenter =
-                targetSample.offsetLeft
-                + targetSample.offsetWidth / 2;
-
-
-            carousel.scrollTo({
-
-                left:
-                    targetCenter
-                    - carousel.clientWidth / 2
-                    + offsetFromCenter,
-
-                behavior: "auto"
-
-            });
-
-
-            activePhysicalIndex =
-                targetIndex;
-
-
-            samplesInCarousel.forEach(
-                (sample, index) => {
-
-                    sample.classList.toggle(
-                        "active",
-                        index === targetIndex
-                    );
-
-                }
-            );
-
-
-            pauseInactiveMedia(
-                samplesInCarousel[targetIndex]
-            );
-
-
-            updateProgress();
-
-
-            setTimeout(
-                () => {
-
-                    scrollCorrectionPending =
-                        false;
-
-                },
-                50
-            );
-
-
-            return;
-
-        }
-
-
-        activePhysicalIndex =
-            closestIndex;
-
-
-        const activeSample =
-            samplesInCarousel[
-                activePhysicalIndex
-            ];
-
-
-        pauseInactiveMedia(
-            activeSample
         );
 
 
@@ -1695,29 +991,16 @@ function initializeCarousel(
 
 
     /*
-     * Progress bar and counter use the logical
-     * sample index, not the physical copy.
+     * Update progress bar and counter.
      */
 
     function updateProgress() {
 
-        const logicalIndex =
-            getLogicalIndex(
-                activePhysicalIndex
-            );
-
-
-        /*
-         * Use the number of samples as the loop,
-         * rather than treating the last sample as
-         * the absolute end.
-         */
-
         const progress =
-            sampleCount > 1
+            samplesInCarousel.length > 1
                 ? (
-                    logicalIndex
-                    / (sampleCount - 1)
+                    activeIndex
+                    / (samplesInCarousel.length - 1)
                 ) * 100
                 : 0;
 
@@ -1731,27 +1014,32 @@ function initializeCarousel(
 
 
         counter.textContent =
-            `${String(logicalIndex + 1).padStart(2, "0")} / ${String(sampleCount).padStart(2, "0")}`;
+            `${String(activeIndex + 1).padStart(2, "0")} / ${String(samplesInCarousel.length).padStart(2, "0")}`;
 
     }
 
 
     /*
-     * Move to a physical sample.
+     * Scroll to a particular sample.
      */
 
-    function moveToPhysicalSample(
-        index,
-        smooth = true
-    ) {
+    function goToSample(index) {
+
+        if (index < 0) {
+            index = 0;
+        }
+
+
+        if (index >= samplesInCarousel.length) {
+
+            index =
+                samplesInCarousel.length - 1;
+
+        }
+
 
         const sample =
             samplesInCarousel[index];
-
-
-        if (!sample) {
-            return;
-        }
 
 
         const targetLeft =
@@ -1764,10 +1052,7 @@ function initializeCarousel(
 
             left: targetLeft,
 
-            behavior:
-                smooth
-                    ? "smooth"
-                    : "auto"
+            behavior: "smooth"
 
         });
 
@@ -1775,73 +1060,28 @@ function initializeCarousel(
 
 
     /*
-     * Move to a logical sample while targeting
-     * the middle copy.
-     */
-
-    function goToLogicalSample(
-        index
-    ) {
-
-        const logicalIndex =
-            (
-                index % sampleCount
-                + sampleCount
-            ) % sampleCount;
-
-
-        const targetIndex =
-            middleStart
-            + logicalIndex;
-
-
-        moveToPhysicalSample(
-            targetIndex,
-            true
-        );
-
-    }
-
-
-    /*
-     * Previous button.
+     * Previous button
      */
 
     previousButton.addEventListener(
         "click",
         () => {
 
-            const logicalIndex =
-                getLogicalIndex(
-                    activePhysicalIndex
-                );
-
-
-            goToLogicalSample(
-                logicalIndex - 1
-            );
+            goToSample(activeIndex - 1);
 
         }
     );
 
 
     /*
-     * Next button.
+     * Next button
      */
 
     nextButton.addEventListener(
         "click",
         () => {
 
-            const logicalIndex =
-                getLogicalIndex(
-                    activePhysicalIndex
-                );
-
-
-            goToLogicalSample(
-                logicalIndex + 1
-            );
+            goToSample(activeIndex + 1);
 
         }
     );
@@ -1853,65 +1093,29 @@ function initializeCarousel(
 
     carousel.addEventListener(
         "scroll",
-        () => {
-
-            updateActiveSample();
-
-        },
-        {
-            passive: true
-        }
+        updateActiveSample,
+        { passive: true }
     );
 
 
     /*
-     * Recalculate on resize.
+     * Recalculate on window resize.
      */
 
     window.addEventListener(
         "resize",
-        () => {
-
-            moveToPhysicalSample(
-                activePhysicalIndex,
-                false
-            );
-
-
-            updateActiveSample();
-
-        }
+        updateActiveSample
     );
 
 
     /*
      * Initial state.
-     *
-     * Center the FIRST logical sample in the
-     * MIDDLE copy.
-     *
-     * Because the middle copy is surrounded by
-     * the other two copies, the LAST sample is
-     * immediately to its left and the SECOND
-     * sample is immediately to its right.
      */
 
     requestAnimationFrame(
         () => {
 
-            moveToPhysicalSample(
-                middleStart,
-                false
-            );
-
-
-            requestAnimationFrame(
-                () => {
-
-                    updateActiveSample();
-
-                }
-            );
+            updateActiveSample();
 
         }
     );
@@ -1925,91 +1129,18 @@ function initializeCarousel(
         "keydown",
         event => {
 
-            if (
-                event.key ===
-                "ArrowLeft"
-            ) {
+            if (event.key === "ArrowLeft") {
 
-                event.preventDefault();
-
-
-                const logicalIndex =
-                    getLogicalIndex(
-                        activePhysicalIndex
-                    );
-
-
-                goToLogicalSample(
-                    logicalIndex - 1
-                );
+                goToSample(activeIndex - 1);
 
             }
 
 
-            if (
-                event.key ===
-                "ArrowRight"
-            ) {
+            if (event.key === "ArrowRight") {
 
-                event.preventDefault();
-
-
-                const logicalIndex =
-                    getLogicalIndex(
-                        activePhysicalIndex
-                    );
-
-
-                goToLogicalSample(
-                    logicalIndex + 1
-                );
+                goToSample(activeIndex + 1);
 
             }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   DESCRIPTION LINKS
-   =========================================================
-
-   Descriptions support simple Markdown-style links:
-
-   [link text](https://example.com)
-
-   Example:
-
-   description:
-       "Watch the full project on [YouTube](https://youtube.com/...)."
-
-   ========================================================= */
-
-function formatDescription(
-    value
-) {
-
-    const escaped =
-        escapeHTML(value);
-
-
-    return escaped.replace(
-        /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
-        (
-            match,
-            text,
-            url
-        ) => {
-
-            return `
-                <a
-                    href="${url}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >${text}</a>
-            `;
 
         }
     );
@@ -2021,9 +1152,7 @@ function formatDescription(
    HTML ESCAPING
    ========================================================= */
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
     if (
         value === undefined ||
@@ -2065,256 +1194,9 @@ function escapeHTML(
 }
 
 
-function escapeAttribute(
-    value
-) {
+function escapeAttribute(value) {
 
-    return escapeHTML(
-        value
-    );
-
-}
-
-
-/* =========================================================
-   FIT LARGE HEADINGS TO THEIR CONTAINERS
-   ========================================================= */
-
-function fitTextToContainer(
-    element,
-    container = element.parentElement,
-    fillContainer = false
-) {
-
-    if (
-        !element ||
-        !container
-    ) {
-
-        return;
-
-    }
-
-
-    const originalSize =
-        parseFloat(
-            getComputedStyle(
-                element
-            ).fontSize
-        );
-
-
-    /*
-     * Temporarily remove width constraints
-     * so we can measure the natural text width.
-     */
-
-    element.style.fontSize =
-        "100px";
-
-
-    element.style.width =
-        "max-content";
-
-
-    const naturalWidth =
-        element.scrollWidth;
-
-
-    if (!naturalWidth) {
-
-        element.style.fontSize =
-            `${originalSize}px`;
-
-
-        element.style.width =
-            "";
-
-
-        return;
-
-    }
-
-
-    const availableWidth =
-        container.clientWidth;
-
-
-    const fittedSize =
-        100 *
-        (
-            availableWidth
-            / naturalWidth
-        );
-
-
-    element.style.fontSize =
-        fillContainer
-            ? `${fittedSize}px`
-            : `${Math.min(
-                originalSize,
-                fittedSize
-            )}px`;
-
-
-    element.style.width =
-        "100%";
-
-}
-
-
-/* =========================================================
-   FIT LARGE HEADINGS
-   ========================================================= */
-
-function fitLargeHeadings() {
-
-    /*
-     * HERO — HANNAH
-     *
-     * Always fill the entire available hero container.
-     */
-
-    const heroHeading =
-        document.querySelector(
-            ".hero-content > h1"
-        );
-
-
-    if (heroHeading) {
-
-        fitTextToContainer(
-            heroHeading,
-            heroHeading.parentElement,
-            true
-        );
-
-    }
-
-
-    /*
-     * SKILLS + FOOTER
-     *
-     * These can shrink when necessary, but should
-     * never become wider than their container.
-     */
-
-    document
-        .querySelectorAll(
-            ".skills-section h2, footer h2"
-        )
-        .forEach(
-            heading => {
-
-                fitTextToContainer(
-                    heading,
-                    heading.parentElement,
-                    false
-                );
-
-            }
-        );
-
-
-    /*
-     * WORK SECTION HEADINGS
-     *
-     * The number badge takes up some horizontal space,
-     * so the h3 gets the remaining width.
-     */
-
-    document
-        .querySelectorAll(
-            ".work-heading h3"
-        )
-        .forEach(
-            heading => {
-
-                const parent =
-                    heading.parentElement;
-
-
-                if (!parent) {
-                    return;
-                }
-
-
-                parent.style.minWidth =
-                    "0";
-
-
-                heading.style.minWidth =
-                    "0";
-
-
-                heading.style.flex =
-                    "1";
-
-
-                fitTextToContainer(
-                    heading,
-                    heading,
-                    false
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================================================
-   INITIALIZE HEADING FIT
-   ========================================================= */
-
-function initializeHeadingFit() {
-
-    fitLargeHeadings();
-
-
-    if (
-        window.ResizeObserver
-    ) {
-
-        const observer =
-            new ResizeObserver(
-                () => {
-
-                    fitLargeHeadings();
-
-                }
-            );
-
-
-        const containers =
-            document.querySelectorAll(
-                ".hero-content, " +
-                ".skills-section .container, " +
-                "footer .container, " +
-                ".work-heading-inner"
-            );
-
-
-        containers.forEach(
-            container => {
-
-                observer.observe(
-                    container
-                );
-
-            }
-        );
-
-    }
-
-    else {
-
-        window.addEventListener(
-            "resize",
-            fitLargeHeadings
-        );
-
-    }
+    return escapeHTML(value);
 
 }
 
@@ -2324,9 +1206,7 @@ function initializeHeadingFit() {
    ========================================================= */
 
 const yearElement =
-    document.getElementById(
-        "current-year"
-    );
+    document.getElementById("current-year");
 
 
 if (yearElement) {
@@ -2342,5 +1222,3 @@ if (yearElement) {
    ========================================================= */
 
 createPortfolio();
-
-initializeHeadingFit();
