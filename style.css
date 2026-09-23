@@ -205,7 +205,8 @@ video {
 
 .hero h1 {
     font-family: var(--display-font);
-    font-size: clamp(7rem, 11vw, 14rem);
+    /*font-size: clamp(7rem, 11vw, 14rem);*/
+    font-size: 13vw;
     font-weight: 800;
     line-height: 0.82;
     letter-spacing: -0.06em;
@@ -527,7 +528,7 @@ video {
 
 .work-heading h3 {
     font-family: var(--display-font);
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 800;
     line-height: 1;
 
@@ -941,7 +942,7 @@ video {
 
 .footer h2 {
     font-family: var(--display-font);
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: clamp(1rem, 7vw, 6rem);
     font-weight: 800;
     line-height: 0.95;
 
@@ -1047,7 +1048,7 @@ video {
     }
 
     .hero h1 {
-        font-size: 22vw;
+        /*font-size: 22vw;*/
     }
 
     .hero-title-row {
@@ -1128,7 +1129,7 @@ video {
     }
 
     .work-heading h3 {
-        font-size: 2rem;
+        font-size: 6vw;
     }
 
     .carousel {
