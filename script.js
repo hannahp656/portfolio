@@ -594,26 +594,11 @@ function createSampleHTML(sample, index) {
 
     //
     //
+
     const aspectRatio =
-    sample.width && sample.height
-        ? `${sample.width} / ${sample.height}`
-        : "16 / 9";
-
-const maxMediaWidth = sample.width && sample.height
-    ? Math.min(700, 700 * (sample.width / sample.height))
-    : 700;
-
-const maxMediaHeight = 700;
-
-const mediaStyle = `
-    aspect-ratio: ${aspectRatio};
-    width: min(${maxMediaWidth}px, 100%);
-    max-height: ${maxMediaHeight}px;
-`;
-    //const aspectRatio =
-    //    sample.width && sample.height
-    //        ? `${sample.width} / ${sample.height}`
-    //        : "16 / 9";
+        sample.width && sample.height
+            ? `${sample.width} / ${sample.height}`
+            : "16 / 9";
 
 
     let mediaHTML;
@@ -638,8 +623,7 @@ const mediaStyle = `
             <div
                 class="media-content"
                 
-                 style="${mediaStyle}"
-                 //style="aspect-ratio: ${aspectRatio};"
+                 style="aspect-ratio: ${aspectRatio};"
             >
 
                 <div class="media-placeholder">
@@ -675,8 +659,7 @@ const mediaStyle = `
 
             <div
                 class="media-content"
-                style="${mediaStyle}"
-                //style="aspect-ratio: ${aspectRatio};"
+                style="aspect-ratio: ${aspectRatio};"
             >
 
                 <img
@@ -706,8 +689,7 @@ const mediaStyle = `
 
             <div
                 class="media-content"
-                style="${mediaStyle}"
-                //style="aspect-ratio: ${aspectRatio};"
+                style="aspect-ratio: ${aspectRatio};"
             >
 
                 <iframe
@@ -742,8 +724,7 @@ const mediaStyle = `
 
             <div
                 class="media-content"
-                style="${mediaStyle}"
-                //style="aspect-ratio: ${aspectRatio};"
+                style="aspect-ratio: ${aspectRatio};"
             >
 
                 <video
