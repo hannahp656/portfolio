@@ -592,11 +592,28 @@ function createSampleHTML(sample, index) {
     const activeClass =
         index === 0 ? "active" : "";
 
-
+    //
+    //
     const aspectRatio =
-        sample.width && sample.height
-            ? `${sample.width} / ${sample.height}`
-            : "16 / 9";
+    sample.width && sample.height
+        ? `${sample.width} / ${sample.height}`
+        : "16 / 9";
+
+const maxMediaWidth = sample.width && sample.height
+    ? Math.min(700, 700 * (sample.width / sample.height))
+    : 700;
+
+const maxMediaHeight = 700;
+
+const mediaStyle = `
+    aspect-ratio: ${aspectRatio};
+    width: min(${maxMediaWidth}px, 100%);
+    max-height: ${maxMediaHeight}px;
+`;
+    //const aspectRatio =
+    //    sample.width && sample.height
+    //        ? `${sample.width} / ${sample.height}`
+    //        : "16 / 9";
 
 
     let mediaHTML;
@@ -620,7 +637,9 @@ function createSampleHTML(sample, index) {
 
             <div
                 class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
+                
+                 style="${mediaStyle}"
+                 //style="aspect-ratio: ${aspectRatio};"
             >
 
                 <div class="media-placeholder">
@@ -656,7 +675,8 @@ function createSampleHTML(sample, index) {
 
             <div
                 class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
+                style="${mediaStyle}"
+                //style="aspect-ratio: ${aspectRatio};"
             >
 
                 <img
@@ -686,7 +706,8 @@ function createSampleHTML(sample, index) {
 
             <div
                 class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
+                style="${mediaStyle}"
+                //style="aspect-ratio: ${aspectRatio};"
             >
 
                 <iframe
@@ -721,7 +742,8 @@ function createSampleHTML(sample, index) {
 
             <div
                 class="media-content"
-                style="aspect-ratio: ${aspectRatio};"
+                style="${mediaStyle}"
+                //style="aspect-ratio: ${aspectRatio};"
             >
 
                 <video
